@@ -29,6 +29,8 @@
 #*                                                                              *
 #*------------------------------------------------------------------------------*
 
+import jax
+
 from jaxfluids.solvers.riemann_solvers.riemann_solver import RiemannSolver
 from jaxfluids.materials.material_manager import MaterialManager
 

@@ -31,6 +31,7 @@
 
 from typing import Tuple
 
+import jax
 import jax.numpy as jnp 
 
 def signal_speed_Arithmetic(u_L: jax.Array, u_R: jax.Array, a_L: jax.Array, a_R: jax.Array,
