@@ -29,6 +29,7 @@
 #*                                                                              *
 #*------------------------------------------------------------------------------*
 
+import jax
 import jax.numpy as jnp
 
 # TODO MEMORY FOOTPRINT OF THESE FUNCTIONS IS HIGH - LOOPS ?
