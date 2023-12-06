@@ -70,26 +70,26 @@ class InterfaceFluxComputer:
             [np.s_[...,:,:,1:], np.s_[...,:,:,:-1]],
         ]
 
-    def compute_interface_flux_xi(self, primes: jnp.DeviceArray, interface_velocity: jnp.DeviceArray, interface_pressure: jnp.DeviceArray,
-            volume_fraction: jnp.DeviceArray, apertures: jnp.DeviceArray, normal: jnp.DeviceArray, axis: int) -> jnp.DeviceArray:
+    def compute_interface_flux_xi(self, primes: jax.Array, interface_velocity: jax.Array, interface_pressure: jax.Array,
+            volume_fraction: jax.Array, apertures: jax.Array, normal: jax.Array, axis: int) -> jax.Array:
         """Computes the interface flux in axis direction.
 
         :param primes: Primitive variable buffer
-        :type primes: jnp.DeviceArray
+        :type primes: jax.Array
         :param interface_velocity: Interface velocity buffer
-        :type interface_velocity: jnp.DeviceArray
+        :type interface_velocity: jax.Array
         :param interface_pressure: Interface pressure buffer
-        :type interface_pressure: jnp.DeviceArray
+        :type interface_pressure: jax.Array
         :param volume_fraction: Volume fraction buffer
-        :type volume_fraction: jnp.DeviceArray
+        :type volume_fraction: jax.Array
         :param apertures: Aperture buffers
-        :type apertures: jnp.DeviceArray
+        :type apertures: jax.Array
         :param normal: Normal buffer
-        :type normal: jnp.DeviceArray
+        :type normal: jax.Array
         :param axis: axis direction
         :type axis: int
         :return: Interface flux in axis direction
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         # BUFFER
         interface_flux_xi = jnp.zeros(primes[..., self.nhx, self.nhy, self.nhz].shape)

@@ -173,8 +173,8 @@ and low Mach number consistency.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prime</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p></li>
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of conservative variables.</p></li>
+<li><p><strong>prime</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of conservative variables.</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction in which the flux is computed.</p></li>
 </ul>
 </dd>
@@ -182,7 +182,7 @@ and low Mach number consistency.</p>
 <dd class="field-even"><p>Numerical flux in specified direction.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -199,15 +199,15 @@ in the ALDM scheme.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p></li>
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of conservative variables.</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of conservative variables.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of the phi vector.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -220,11 +220,11 @@ via a convex combination of modified WENO1, WENO3 and WENO5.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>phi</strong> (<em>jnp.DeviceArray</em>) – Buffer of phi vector.</p></li>
-<li><p><strong>alpha_1</strong> (<em>jnp.DeviceArray</em>) – First-order reconstruction weight.</p></li>
-<li><p><strong>alpha_2</strong> (<em>jnp.DeviceArray</em>) – Second-order reconstruction weight.</p></li>
-<li><p><strong>alpha_3</strong> (<em>jnp.DeviceArray</em>) – Third-order reconstruction weight.</p></li>
-<li><p><strong>fs</strong> (<em>jnp.DeviceArray</em>) – Shock sensor.</p></li>
+<li><p><strong>phi</strong> (<em>jax.Array</em>) – Buffer of phi vector.</p></li>
+<li><p><strong>alpha_1</strong> (<em>jax.Array</em>) – First-order reconstruction weight.</p></li>
+<li><p><strong>alpha_2</strong> (<em>jax.Array</em>) – Second-order reconstruction weight.</p></li>
+<li><p><strong>alpha_3</strong> (<em>jax.Array</em>) – Third-order reconstruction weight.</p></li>
+<li><p><strong>fs</strong> (<em>jax.Array</em>) – Shock sensor.</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which reconstruction is done.</p></li>
 <li><p><strong>j</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Bit indicating whether reconstruction is left (j=0) or right (j=1)
 of the cell face.</p></li>
@@ -235,7 +235,7 @@ of the cell face.</p></li>
 <dd class="field-even"><p>Reconstructed phi vector and reconstructed third-oder pressure value.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -250,12 +250,12 @@ p3_K is third-order pressure reconstruction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>phi_L</strong> (<em>jnp.DeviceArray</em>) – Phi vector of left neighboring state</p></li>
-<li><p><strong>phi_R</strong> (<em>jnp.DeviceArray</em>) – Phi vector of right neighboring state</p></li>
-<li><p><strong>p3_L</strong> (<em>jnp.DeviceArray</em>) – Third-order pressure reconstruction of left neighboring state</p></li>
-<li><p><strong>p3_R</strong> (<em>jnp.DeviceArray</em>) – Third-order pressure reconstruction of right neighboring state</p></li>
-<li><p><strong>alpha_3</strong> (<em>jnp.DeviceArray</em>) – Third-order reconstruction weight</p></li>
-<li><p><strong>fs</strong> (<em>jnp.DeviceArray</em>) – Shock sensor.</p></li>
+<li><p><strong>phi_L</strong> (<em>jax.Array</em>) – Phi vector of left neighboring state</p></li>
+<li><p><strong>phi_R</strong> (<em>jax.Array</em>) – Phi vector of right neighboring state</p></li>
+<li><p><strong>p3_L</strong> (<em>jax.Array</em>) – Third-order pressure reconstruction of left neighboring state</p></li>
+<li><p><strong>p3_R</strong> (<em>jax.Array</em>) – Third-order pressure reconstruction of right neighboring state</p></li>
+<li><p><strong>alpha_3</strong> (<em>jax.Array</em>) – Third-order reconstruction weight</p></li>
+<li><p><strong>fs</strong> (<em>jax.Array</em>) – Shock sensor.</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which flux is calculated.</p></li>
 </ul>
 </dd>
@@ -263,7 +263,7 @@ p3_K is third-order pressure reconstruction</p>
 <dd class="field-even"><p>Numerical flux in axis drection.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -285,7 +285,7 @@ p3_K is third-order pressure reconstruction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>buffer</strong> (<em>jnp.DeviceArray</em>) – Buffer that will be reconstructed</p></li>
+<li><p><strong>buffer</strong> (<em>jax.Array</em>) – Buffer that will be reconstructed</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial axis along which values are reconstructed</p></li>
 <li><p><strong>j</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – integer which specifies whether to calculate reconstruction left (j=0) or right (j=1)
 of an interface</p></li>
@@ -296,7 +296,7 @@ of an interface</p></li>
 <dd class="field-even"><p>Buffer with cell face reconstructed values</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -318,7 +318,7 @@ of an interface</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>buffer</strong> (<em>jnp.DeviceArray</em>) – Buffer that will be reconstructed</p></li>
+<li><p><strong>buffer</strong> (<em>jax.Array</em>) – Buffer that will be reconstructed</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial axis along which values are reconstructed</p></li>
 <li><p><strong>j</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – integer which specifies whether to calculate reconstruction left (j=0) or right (j=1)
 of an interface</p></li>
@@ -329,7 +329,7 @@ of an interface</p></li>
 <dd class="field-even"><p>Buffer with cell face reconstructed values</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -356,7 +356,7 @@ of an interface</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>buffer</strong> (<em>jnp.DeviceArray</em>) – Buffer that will be reconstructed</p></li>
+<li><p><strong>buffer</strong> (<em>jax.Array</em>) – Buffer that will be reconstructed</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial axis along which values are reconstructed</p></li>
 <li><p><strong>j</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – integer which specifies whether to calculate reconstruction left (j=0) or right (j=1)
 of an interface</p></li>
@@ -367,7 +367,7 @@ of an interface</p></li>
 <dd class="field-even"><p>Buffer with cell face reconstructed values</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>

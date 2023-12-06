@@ -148,17 +148,17 @@
         <span class="sd">&quot;&quot;&quot;Extends the quantity in normal direction. </span>
 
 <span class="sd">        :param quantity: Quantity buffer</span>
-<span class="sd">        :type quantity: jnp.DeviceArray</span>
+<span class="sd">        :type quantity: jax.Array</span>
 <span class="sd">        :param normal: Normal buffer</span>
-<span class="sd">        :type normal: jnp.DeviceArray</span>
+<span class="sd">        :type normal: jax.Array</span>
 <span class="sd">        :param mask: Mask indicating where to extend</span>
-<span class="sd">        :type mask: jnp.DeviceArray</span>
+<span class="sd">        :type mask: jax.Array</span>
 <span class="sd">        :param CFL: CFL number</span>
 <span class="sd">        :type CFL: float</span>
 <span class="sd">        :param steps: Number of integration steps</span>
 <span class="sd">        :type steps: int</span>
 <span class="sd">        :return: Extended quantity buffer and corresponding residual</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, float]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, float]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">timestep_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">smallest_cell_size</span> <span class="o">*</span> <span class="n">CFL</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
@@ -171,15 +171,15 @@
         <span class="sd">&quot;&quot;&quot;Performs an integration step of the extension equation.</span>
 
 <span class="sd">        :param quantity: Quantity buffer</span>
-<span class="sd">        :type quantity: jnp.DeviceArray</span>
+<span class="sd">        :type quantity: jax.Array</span>
 <span class="sd">        :param normal: Normal buffer</span>
-<span class="sd">        :type normal: jnp.DeviceArray</span>
+<span class="sd">        :type normal: jax.Array</span>
 <span class="sd">        :param mask: Mask indicating where to extend</span>
-<span class="sd">        :type mask: jnp.DeviceArray</span>
+<span class="sd">        :type mask: jax.Array</span>
 <span class="sd">        :param timestep_size: Fictitious time step size</span>
 <span class="sd">        :type timestep_size: float</span>
 <span class="sd">        :return: Integrated quantity buffer and corresponding right-hand-side buffer</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># FILL INIT</span>
@@ -205,13 +205,13 @@
         <span class="sd">&quot;&quot;&quot;Computes the right-hand-side of the exension equation.</span>
 
 <span class="sd">        :param quantity: Quantity buffer</span>
-<span class="sd">        :type quantity: jnp.DeviceArray</span>
+<span class="sd">        :type quantity: jax.Array</span>
 <span class="sd">        :param normal: Normal buffer</span>
-<span class="sd">        :type normal: jnp.DeviceArray</span>
+<span class="sd">        :type normal: jax.Array</span>
 <span class="sd">        :param mask: Mask indiciating where to extend</span>
-<span class="sd">        :type mask: jnp.DeviceArray</span>
+<span class="sd">        :type mask: jax.Array</span>
 <span class="sd">        :return: Right-hand-side of the extension equation</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">rhs</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_axis_indices</span><span class="p">:</span>

@@ -143,13 +143,13 @@
         <span class="sd">&quot;&quot;&quot;Calculates the derivative in the direction indicated by axis.</span>
 
 <span class="sd">        :param buffer: Buffer for which the derivative will be calculated</span>
-<span class="sd">        :type buffer: jnp.DeviceArray</span>
+<span class="sd">        :type buffer: jax.Array</span>
 <span class="sd">        :param dxi: Cell sizes along axis direction</span>
-<span class="sd">        :type dxi: jnp.DeviceArray</span>
+<span class="sd">        :type dxi: jax.Array</span>
 <span class="sd">        :param axis: Spatial axis along which derivative is calculated</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Buffer with numerical derivative</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
@@ -157,17 +157,17 @@
         <span class="sd">&quot;&quot;&quot;Calculates the second derivative in the directions indicated by i and j.</span>
 
 <span class="sd">        :param buffer: Buffer for which the second derivative will be calculated</span>
-<span class="sd">        :type buffer: jnp.DeviceArray</span>
+<span class="sd">        :type buffer: jax.Array</span>
 <span class="sd">        :param dxi: Cell sizes along i direction</span>
-<span class="sd">        :type dxi: jnp.DeviceArray</span>
+<span class="sd">        :type dxi: jax.Array</span>
 <span class="sd">        :param dxj: Cell sizes along j direction</span>
-<span class="sd">        :type dxj: jnp.DeviceArray</span>
+<span class="sd">        :type dxj: jax.Array</span>
 <span class="sd">        :param i: Spatial axis along which derivative is calculated</span>
 <span class="sd">        :type i: int</span>
 <span class="sd">        :param j: Spatial axis along which derivative is calculated</span>
 <span class="sd">        :type j: int</span>
 <span class="sd">        :return: Buffer with numerical derivative</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div></div>
 </pre></div>

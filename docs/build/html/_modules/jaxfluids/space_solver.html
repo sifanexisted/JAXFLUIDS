@@ -190,15 +190,15 @@
 <span class="sd">        interface interactions, also computes the right-hand-side of the levelset advection.</span>
 
 <span class="sd">        :param cons: Buffer of conservative variables</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :param primes: Buffer of primitive variables</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param current_time: Current physical simulation time</span>
 <span class="sd">        :type current_time: float</span>
 <span class="sd">        :param levelset: Levelset buffer, defaults to None</span>
-<span class="sd">        :type levelset: jnp.DeviceArray, optional</span>
+<span class="sd">        :type levelset: jax.Array, optional</span>
 <span class="sd">        :param volume_fraction: Volume fraction buffer, defaults to None</span>
-<span class="sd">        :type volume_fraction: jnp.DeviceArray, optional</span>
+<span class="sd">        :type volume_fraction: jax.Array, optional</span>
 <span class="sd">        :param apertures: Aperture buffers, defaults to None</span>
 <span class="sd">        :type apertures: List, optional</span>
 <span class="sd">        :param forcings_dictionary: Forcings dictionary, defaults to None</span>
@@ -209,7 +209,7 @@
 <span class="sd">        :type ml_networks_dict: Union[Dict, None], optional</span>
 <span class="sd">        :return: Tuple containing the right-hand-side buffer of the Navier-Stokes equations, the</span>
 <span class="sd">        right-hand-side buffer of the levelset advection equation and the maximum extension residual of the interface quantities </span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, Union[jnp.DeviceArray, None], Union[float, None]]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, Union[jax.Array, None], Union[float, None]]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># COMPUTE TEMPERATURE</span>

@@ -161,21 +161,21 @@
         <span class="sd">&quot;&quot;&quot;Computes the interface flux in axis direction.</span>
 
 <span class="sd">        :param primes: Primitive variable buffer</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param interface_velocity: Interface velocity buffer</span>
-<span class="sd">        :type interface_velocity: jnp.DeviceArray</span>
+<span class="sd">        :type interface_velocity: jax.Array</span>
 <span class="sd">        :param interface_pressure: Interface pressure buffer</span>
-<span class="sd">        :type interface_pressure: jnp.DeviceArray</span>
+<span class="sd">        :type interface_pressure: jax.Array</span>
 <span class="sd">        :param volume_fraction: Volume fraction buffer</span>
-<span class="sd">        :type volume_fraction: jnp.DeviceArray</span>
+<span class="sd">        :type volume_fraction: jax.Array</span>
 <span class="sd">        :param apertures: Aperture buffers</span>
-<span class="sd">        :type apertures: jnp.DeviceArray</span>
+<span class="sd">        :type apertures: jax.Array</span>
 <span class="sd">        :param normal: Normal buffer</span>
-<span class="sd">        :type normal: jnp.DeviceArray</span>
+<span class="sd">        :type normal: jax.Array</span>
 <span class="sd">        :param axis: axis direction</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Interface flux in axis direction</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># BUFFER</span>
         <span class="n">interface_flux_xi</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">primes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nhx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nhy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nhz</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>

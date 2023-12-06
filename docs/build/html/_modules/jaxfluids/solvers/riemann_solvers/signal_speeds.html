@@ -124,15 +124,15 @@
     <span class="sd">&quot;&quot;&quot;Arithmetic signal speed estimate</span>
 
 <span class="sd">    :param u_L: Buffer with normal velocity in left neighboring cell.</span>
-<span class="sd">    :type u_L: jnp.DeviceArray</span>
+<span class="sd">    :type u_L: jax.Array</span>
 <span class="sd">    :param u_R: Buffer with normal velocity in right neighboring cell.</span>
-<span class="sd">    :type u_R: jnp.DeviceArray</span>
+<span class="sd">    :type u_R: jax.Array</span>
 <span class="sd">    :param a_L: Buffer with speed of sound in left neighboring cell.</span>
-<span class="sd">    :type a_L: jnp.DeviceArray</span>
+<span class="sd">    :type a_L: jax.Array</span>
 <span class="sd">    :param a_R: Buffer with speed of sound in right neighboring cell.</span>
-<span class="sd">    :type a_R: jnp.DeviceArray</span>
+<span class="sd">    :type a_R: jax.Array</span>
 <span class="sd">    :return: Buffers of left and right going wave speed estimates.</span>
-<span class="sd">    :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">    :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">u_mean</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">u_L</span> <span class="o">+</span> <span class="n">u_R</span><span class="p">)</span>
     <span class="n">a_mean</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">a_L</span> <span class="o">+</span> <span class="n">a_R</span><span class="p">)</span>
@@ -145,15 +145,15 @@
     <span class="sd">&quot;&quot;&quot;Rusanov type signal speed estimate</span>
 
 <span class="sd">    :param u_L: Buffer with normal velocity in left neighboring cell.</span>
-<span class="sd">    :type u_L: jnp.DeviceArray</span>
+<span class="sd">    :type u_L: jax.Array</span>
 <span class="sd">    :param u_R: Buffer with normal velocity in right neighboring cell.</span>
-<span class="sd">    :type u_R: jnp.DeviceArray</span>
+<span class="sd">    :type u_R: jax.Array</span>
 <span class="sd">    :param a_L: Buffer with speed of sound in left neighboring cell.</span>
-<span class="sd">    :type a_L: jnp.DeviceArray</span>
+<span class="sd">    :type a_L: jax.Array</span>
 <span class="sd">    :param a_R: Buffer with speed of sound in right neighboring cell.</span>
-<span class="sd">    :type a_R: jnp.DeviceArray</span>
+<span class="sd">    :type a_R: jax.Array</span>
 <span class="sd">    :return: Buffers of left and right going wave speed estimates.</span>
-<span class="sd">    :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">    :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">S_plus</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">u_L</span><span class="p">)</span> <span class="o">+</span> <span class="n">a_L</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">u_R</span><span class="p">)</span> <span class="o">+</span> <span class="n">a_R</span><span class="p">)</span>
     <span class="n">S_L</span> <span class="o">=</span> <span class="o">-</span> <span class="n">S_plus</span>
@@ -166,15 +166,15 @@
 <span class="sd">    See Toro Eq. (10.48)</span>
 
 <span class="sd">    :param u_L: Buffer with normal velocity in left neighboring cell.</span>
-<span class="sd">    :type u_L: jnp.DeviceArray</span>
+<span class="sd">    :type u_L: jax.Array</span>
 <span class="sd">    :param u_R: Buffer with normal velocity in right neighboring cell.</span>
-<span class="sd">    :type u_R: jnp.DeviceArray</span>
+<span class="sd">    :type u_R: jax.Array</span>
 <span class="sd">    :param a_L: Buffer with speed of sound in left neighboring cell.</span>
-<span class="sd">    :type a_L: jnp.DeviceArray</span>
+<span class="sd">    :type a_L: jax.Array</span>
 <span class="sd">    :param a_R: Buffer with speed of sound in right neighboring cell.</span>
-<span class="sd">    :type a_R: jnp.DeviceArray</span>
+<span class="sd">    :type a_R: jax.Array</span>
 <span class="sd">    :return: Buffers of left and right going wave speed estimates.</span>
-<span class="sd">    :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">    :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">S_L</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span> <span class="n">u_L</span> <span class="o">-</span> <span class="n">a_L</span><span class="p">,</span> <span class="n">u_R</span> <span class="o">-</span> <span class="n">a_R</span> <span class="p">)</span>
     <span class="n">S_R</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span> <span class="n">u_L</span> <span class="o">+</span> <span class="n">a_L</span><span class="p">,</span> <span class="n">u_R</span> <span class="o">+</span> <span class="n">a_R</span> <span class="p">)</span>
@@ -186,25 +186,25 @@
     <span class="sd">&quot;&quot;&quot;Signal speed estimate according to Davis.</span>
 
 <span class="sd">    :param u_L: Buffer with normal velocity in left neighboring cell.</span>
-<span class="sd">    :type u_L: jnp.DeviceArray</span>
+<span class="sd">    :type u_L: jax.Array</span>
 <span class="sd">    :param u_R: Buffer with normal velocity in right neighboring cell.</span>
-<span class="sd">    :type u_R: jnp.DeviceArray</span>
+<span class="sd">    :type u_R: jax.Array</span>
 <span class="sd">    :param a_L: Buffer with speed of sound in left neighboring cell.</span>
-<span class="sd">    :type a_L: jnp.DeviceArray</span>
+<span class="sd">    :type a_L: jax.Array</span>
 <span class="sd">    :param a_R: Buffer with speed of sound in right neighboring cell.</span>
-<span class="sd">    :type a_R: jnp.DeviceArray</span>
+<span class="sd">    :type a_R: jax.Array</span>
 <span class="sd">    :param rho_L: Buffer with densitites in left neighboring cell.</span>
-<span class="sd">    :type rho_L: jnp.DeviceArray</span>
+<span class="sd">    :type rho_L: jax.Array</span>
 <span class="sd">    :param rho_R: Buffer with densitites in right neighboring cell.</span>
-<span class="sd">    :type rho_R: jnp.DeviceArray</span>
+<span class="sd">    :type rho_R: jax.Array</span>
 <span class="sd">    :param H_L: Buffer with total enthalpies in left neighboring cell.</span>
-<span class="sd">    :type H_L: jnp.DeviceArray</span>
+<span class="sd">    :type H_L: jax.Array</span>
 <span class="sd">    :param H_R: Buffer with enthalpies in right neighboring cell.</span>
-<span class="sd">    :type H_R: jnp.DeviceArray</span>
+<span class="sd">    :type H_R: jax.Array</span>
 <span class="sd">    :param gamma: Ratio of specific heats.</span>
 <span class="sd">    :type gamma: float</span>
 <span class="sd">    :return: Buffers of left and right going wave speed estimates.</span>
-<span class="sd">    :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">    :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">one_dens</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rho_L</span><span class="p">)</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rho_R</span><span class="p">))</span>
@@ -221,15 +221,15 @@
 <span class="sd">    See Toro Eqs. (10.52) - (10.54) </span>
 
 <span class="sd">    :param u_L: Buffer with normal velocity in left neighboring cell.</span>
-<span class="sd">    :type u_L: jnp.DeviceArray</span>
+<span class="sd">    :type u_L: jax.Array</span>
 <span class="sd">    :param u_R: Buffer with normal velocity in right neighboring cell.</span>
-<span class="sd">    :type u_R: jnp.DeviceArray</span>
+<span class="sd">    :type u_R: jax.Array</span>
 <span class="sd">    :param a_L: Buffer with speed of sound in left neighboring cell.</span>
-<span class="sd">    :type a_L: jnp.DeviceArray</span>
+<span class="sd">    :type a_L: jax.Array</span>
 <span class="sd">    :param a_R: Buffer with speed of sound in right neighboring cell.</span>
-<span class="sd">    :type a_R: jnp.DeviceArray</span>
+<span class="sd">    :type a_R: jax.Array</span>
 <span class="sd">    :return: Buffers of left and right going wave speed estimates.</span>
-<span class="sd">    :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">    :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">one_dens</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rho_L</span><span class="p">)</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rho_R</span><span class="p">))</span>
     <span class="n">eta2</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rho_L</span><span class="p">)</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rho_R</span><span class="p">)</span> <span class="o">*</span> <span class="n">one_dens</span> <span class="o">*</span> <span class="n">one_dens</span>
@@ -246,14 +246,14 @@
 <span class="sd">    See Toro Eqs. (10.59) - (10.60) </span>
 
 <span class="sd">    :param u_L: Buffer with normal velocity in left neighboring cell.</span>
-<span class="sd">    :type u_L: jnp.DeviceArray</span>
+<span class="sd">    :type u_L: jax.Array</span>
 <span class="sd">    :param u_R: Buffer with normal velocity in right neighboring cell.</span>
-<span class="sd">    :type u_R: jnp.DeviceArray</span>
+<span class="sd">    :type u_R: jax.Array</span>
 <span class="sd">    :param a_L: Buffer with speed of sound in left neighboring cell.</span>
-<span class="sd">    :type a_L: jnp.DeviceArray</span>
+<span class="sd">    :type a_L: jax.Array</span>
 <span class="sd">    :param a_R: Buffer with speed of sound in right neighboring cell.</span>
-<span class="sd">    :type a_R: jnp.DeviceArray</span>
-<span class="sd">    :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">    :type a_R: jax.Array</span>
+<span class="sd">    :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">p_star</span> <span class="o">=</span> <span class="n">estimate_pressure</span><span class="p">(</span><span class="n">u_L</span><span class="p">,</span> <span class="n">u_R</span><span class="p">,</span> <span class="n">a_L</span><span class="p">,</span> <span class="n">a_R</span><span class="p">,</span> <span class="n">rho_L</span><span class="p">,</span> <span class="n">rho_R</span><span class="p">,</span> <span class="n">p_L</span><span class="p">,</span> <span class="n">p_R</span><span class="p">)</span>
     <span class="n">gamma_</span> <span class="o">=</span> <span class="p">(</span><span class="n">gamma</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">/</span> <span class="n">gamma</span>
@@ -270,23 +270,23 @@
 <span class="sd">    See Toro Eq. (10.70)</span>
 
 <span class="sd">    :param u_L: Buffer with normal velocity in left neighboring cell.</span>
-<span class="sd">    :type u_L: jnp.DeviceArray</span>
+<span class="sd">    :type u_L: jax.Array</span>
 <span class="sd">    :param u_R: Buffer with normal velocity in right neighboring cell.</span>
-<span class="sd">    :type u_R: jnp.DeviceArray</span>
+<span class="sd">    :type u_R: jax.Array</span>
 <span class="sd">    :param p_L: Pressure of left neighboring cell.</span>
-<span class="sd">    :type p_L: jnp.DeviceArray</span>
+<span class="sd">    :type p_L: jax.Array</span>
 <span class="sd">    :param p_R: Pressure of right neighboring cells.</span>
-<span class="sd">    :type p_R: jnp.DeviceArray</span>
+<span class="sd">    :type p_R: jax.Array</span>
 <span class="sd">    :param rho_L: Density of left neighboring cell.</span>
-<span class="sd">    :type rho_L: jnp.DeviceArray</span>
+<span class="sd">    :type rho_L: jax.Array</span>
 <span class="sd">    :param rho_R: Density of right neighboring cell.</span>
-<span class="sd">    :type rho_R: jnp.DeviceArray</span>
+<span class="sd">    :type rho_R: jax.Array</span>
 <span class="sd">    :param S_L: Wave speed estimate left-going wave.</span>
-<span class="sd">    :type S_L: jnp.DeviceArray</span>
+<span class="sd">    :type S_L: jax.Array</span>
 <span class="sd">    :param S_R: Wave speed estimate right-going wave.</span>
-<span class="sd">    :type S_R: jnp.DeviceArray</span>
+<span class="sd">    :type S_R: jax.Array</span>
 <span class="sd">    :return: Speed of the intermediate wave in the Riemann problem.</span>
-<span class="sd">    :rtype: jnp.DeviceArray</span>
+<span class="sd">    :rtype: jax.Array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">delta_uL</span> <span class="o">=</span> <span class="n">S_L</span> <span class="o">-</span> <span class="n">u_L</span>
@@ -303,23 +303,23 @@
 <span class="sd">    See Toro Eq. (9.28) or (10.67)</span>
 
 <span class="sd">    :param u_L: Buffer with normal velocity in left neighboring cell.</span>
-<span class="sd">    :type u_L: jnp.DeviceArray</span>
+<span class="sd">    :type u_L: jax.Array</span>
 <span class="sd">    :param u_R: Buffer with normal velocity in right neighboring cell.</span>
-<span class="sd">    :type u_R: jnp.DeviceArray</span>
+<span class="sd">    :type u_R: jax.Array</span>
 <span class="sd">    :param a_L: Buffer with speed of sound in left neighboring cell.</span>
-<span class="sd">    :type a_L: jnp.DeviceArray</span>
+<span class="sd">    :type a_L: jax.Array</span>
 <span class="sd">    :param a_R: Buffer with speed of sound in right neighboring cell.</span>
-<span class="sd">    :type a_R: jnp.DeviceArray</span>
+<span class="sd">    :type a_R: jax.Array</span>
 <span class="sd">    :param rho_L: Densities of left neighboring cells.</span>
-<span class="sd">    :type rho_L: jnp.DeviceArray</span>
+<span class="sd">    :type rho_L: jax.Array</span>
 <span class="sd">    :param rho_R: Densities of right neighboring cells.</span>
-<span class="sd">    :type rho_R: jnp.DeviceArray</span>
+<span class="sd">    :type rho_R: jax.Array</span>
 <span class="sd">    :param p_L: Pressure of left neighboring cell.</span>
-<span class="sd">    :type p_L: jnp.DeviceArray</span>
+<span class="sd">    :type p_L: jax.Array</span>
 <span class="sd">    :param p_R: Pressure of right neighboring cells.</span>
-<span class="sd">    :type p_R: jnp.DeviceArray</span>
+<span class="sd">    :type p_R: jax.Array</span>
 <span class="sd">    :return: Pressure in the star region.</span>
-<span class="sd">    :rtype: jnp.DeviceArray</span>
+<span class="sd">    :rtype: jax.Array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rho_bar</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">rho_L</span> <span class="o">+</span> <span class="n">rho_R</span><span class="p">)</span>
     <span class="n">a_bar</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">a_L</span> <span class="o">+</span> <span class="n">a_R</span><span class="p">)</span>

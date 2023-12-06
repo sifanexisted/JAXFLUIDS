@@ -123,13 +123,13 @@
     <span class="sd">&quot;&quot;&quot;Moves the source array in positive normal direction within the ii plane.</span>
 
 <span class="sd">    :param source_array: Source array buffer</span>
-<span class="sd">    :type source_array: jnp.DeviceArray</span>
+<span class="sd">    :type source_array: jax.Array</span>
 <span class="sd">    :param normal_sign: Normal sign buffer</span>
-<span class="sd">    :type normal_sign: jnp.DeviceArray</span>
+<span class="sd">    :type normal_sign: jax.Array</span>
 <span class="sd">    :param axis: axis i</span>
 <span class="sd">    :type axis: int</span>
 <span class="sd">    :return: Moved source array in ii plane</span>
-<span class="sd">    :rtype: jnp.DeviceArray</span>
+<span class="sd">    :rtype: jax.Array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">array_plus</span>  <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">source_array</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="n">axis</span><span class="p">)</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">normal_sign</span><span class="p">[</span><span class="n">axis</span><span class="p">],</span>  <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="n">axis</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">array_minus</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">source_array</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="n">axis</span><span class="p">)</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">normal_sign</span><span class="p">[</span><span class="n">axis</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="n">axis</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -173,13 +173,13 @@
     <span class="sd">&quot;&quot;&quot;Moves the target array in negative normal direction in the ii plane.</span>
 
 <span class="sd">    :param target_array: Target array buffer</span>
-<span class="sd">    :type target_array: jnp.DeviceArray</span>
+<span class="sd">    :type target_array: jax.Array</span>
 <span class="sd">    :param normal_sign: Normal sign buffer</span>
-<span class="sd">    :type normal_sign: jnp.DeviceArray</span>
+<span class="sd">    :type normal_sign: jax.Array</span>
 <span class="sd">    :param axis: axis i</span>
 <span class="sd">    :type axis: int</span>
 <span class="sd">    :return: Moved target array in ii plane</span>
-<span class="sd">    :rtype: jnp.DeviceArray</span>
+<span class="sd">    :rtype: jax.Array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">array_plus</span>  <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">target_array</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="n">axis</span><span class="p">)</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">normal_sign</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">array_minus</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">target_array</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="n">axis</span><span class="p">)</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">normal_sign</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>

@@ -53,7 +53,7 @@ class DerivativeFirstOrderSided(SpatialDerivative):
                 
         ] for j in [0, 1] ]
 
-    def derivative_xi(self, levelset: jnp.DeviceArray, dxi: jnp.DeviceArray, i: int, j: int, *args) -> jnp.DeviceArray:
+    def derivative_xi(self, levelset: jax.Array, dxi: jax.Array, i: int, j: int, *args) -> jax.Array:
         s1_ = self.s_[j][i]
         deriv_xi = (1.0 / dxi) * (-levelset[s1_[0]] + levelset[s1_[1]])
         return deriv_xi

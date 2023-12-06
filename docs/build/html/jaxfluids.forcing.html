@@ -167,8 +167,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>vels</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocities.</p></li>
-<li><p><strong>vels_dash</strong> (<em>jnp.DeviceArray</em>) – Buffer of intermediate velocities which are obtained
+<li><p><strong>vels</strong> (<em>jax.Array</em>) – Buffer of velocities.</p></li>
+<li><p><strong>vels_dash</strong> (<em>jax.Array</em>) – Buffer of intermediate velocities which are obtained
 by integrating primes without forcing term.</p></li>
 <li><p><strong>eta_s</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Cut-off wavenumber up to which forcing is applied.</p></li>
 <li><p><strong>timestep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current time step.</p></li>
@@ -178,7 +178,7 @@ by integrating primes without forcing term.</p></li>
 <dd class="field-even"><p>Buffer of the velocity forcing vector.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -190,11 +190,11 @@ by integrating primes without forcing term.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – buffer of primitive variables</p></li>
-<li><p><strong>primes_dash</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><em>None</em><em>]</em>) – buffer of primitive variables for next time step without forcing</p></li>
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – buffer of conservative variables</p></li>
-<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><em>None</em><em>]</em>) – buffer of volume fractions</p></li>
-<li><p><strong>mask_real</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><em>None</em><em>]</em>) – mask indicating the real fluid</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – buffer of primitive variables</p></li>
+<li><p><strong>primes_dash</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><em>None</em><em>]</em>) – buffer of primitive variables for next time step without forcing</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – buffer of conservative variables</p></li>
+<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><em>None</em><em>]</em>) – buffer of volume fractions</p></li>
+<li><p><strong>mask_real</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><em>None</em><em>]</em>) – mask indicating the real fluid</p></li>
 <li><p><strong>current_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – current physical simulation time</p></li>
 <li><p><strong>timestep_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – current physical time step size</p></li>
 <li><p><strong>PID_e_new</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Error of previous timestep for PID controller</p></li>
@@ -218,9 +218,9 @@ by integrating primes without forcing term.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of the conservative variables.</p></li>
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of the primitive variables.</p></li>
-<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><em>None</em><em>]</em>) – Buffer of the volume fraction in two-phase flows.</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of the conservative variables.</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of the primitive variables.</p></li>
+<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><em>None</em><em>]</em>) – Buffer of the volume fraction in two-phase flows.</p></li>
 <li><p><strong>current_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current simulation time.</p></li>
 <li><p><strong>timestep_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current time step.</p></li>
 <li><p><strong>PID_e_new</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current PID error</p></li>
@@ -231,7 +231,7 @@ by integrating primes without forcing term.</p></li>
 <dd class="field-even"><p>Buffer of the body force, current mass flow, mass flow target, PID error, PID integral error</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -243,9 +243,9 @@ by integrating primes without forcing term.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p></li>
-<li><p><strong>levelset</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><em>None</em><em>]</em>) – Buffer of level-set field.</p></li>
-<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><em>None</em><em>]</em>) – Buffer of volume fraction field.</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p></li>
+<li><p><strong>levelset</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><em>None</em><em>]</em>) – Buffer of level-set field.</p></li>
+<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><em>None</em><em>]</em>) – Buffer of volume fraction field.</p></li>
 <li><p><strong>current_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current simulation time.</p></li>
 <li><p><strong>timestep_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current integration time step.</p></li>
 </ul>
@@ -254,7 +254,7 @@ by integrating primes without forcing term.</p></li>
 <dd class="field-even"><p>Buffer of the forcing vector and the mean absolute error wrt the temperature target.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -266,8 +266,8 @@ by integrating primes without forcing term.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p></li>
-<li><p><strong>primes_dash</strong> (<em>jnp.DeviceArray</em>) – Buffer of intermediate primitive variables which are obtained
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p></li>
+<li><p><strong>primes_dash</strong> (<em>jax.Array</em>) – Buffer of intermediate primitive variables which are obtained
 by integrating primes without forcing term.</p></li>
 <li><p><strong>timestep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current time step.</p></li>
 </ul>
@@ -276,7 +276,7 @@ by integrating primes without forcing term.</p></li>
 <dd class="field-even"><p>Buffer of the forcing vector.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>

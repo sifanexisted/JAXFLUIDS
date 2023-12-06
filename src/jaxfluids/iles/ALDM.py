@@ -73,17 +73,17 @@ class ALDM:
 
         self.shock_sensor = Ducros(domain_information)
 
-    def compute_fluxes_xi(self, prime: jnp.DeviceArray, cons: jnp.DeviceArray, axis: int, **kwargs) -> jnp.DeviceArray:
+    def compute_fluxes_xi(self, prime: jax.Array, cons: jax.Array, axis: int, **kwargs) -> jax.Array:
         """Computes the numerical flux in the axis direction.
 
         :param prime: Buffer of primitive variables.
-        :type prime: jnp.DeviceArray
+        :type prime: jax.Array
         :param cons: Buffer of conservative variables.
-        :type cons: jnp.DeviceArray
+        :type cons: jax.Array
         :param axis: Spatial direction in which the flux is computed.
         :type axis: int
         :return: Numerical flux in specified direction.
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         # Evaluate shock sensor
         fs = self.shock_sensor.compute_sensor_function(prime[1:4], axis)
@@ -100,9 +100,9 @@ class ALDM:
 
         return self.solve_riemann_problem_xi(phi_L, phi_R, p3_L, p3_R, alpha_3, fs, axis)
 
-    def solve_riemann_problem_xi(self, phi_L: jnp.DeviceArray, phi_R: jnp.DeviceArray, 
-        p3_L: jnp.DeviceArray, p3_R: jnp.DeviceArray, alpha_3: jnp.DeviceArray, 
-        fs: jnp.DeviceArray, axis: int) -> jnp.DeviceArray:
+    def solve_riemann_problem_xi(self, phi_L: jax.Array, phi_R: jax.Array, 
+        p3_L: jax.Array, p3_R: jax.Array, alpha_3: jax.Array, 
+        fs: jax.Array, axis: int) -> jax.Array:
         """Solves the Riemann problem, i.e., calculates the numerical flux, in 
         the direction specified by axis.
 
@@ -110,21 +110,21 @@ class ALDM:
         p3_K is third-order pressure reconstruction
 
         :param phi_L: Phi vector of left neighboring state
-        :type phi_L: jnp.DeviceArray
+        :type phi_L: jax.Array
         :param phi_R: Phi vector of right neighboring state
-        :type phi_R: jnp.DeviceArray
+        :type phi_R: jax.Array
         :param p3_L: Third-order pressure reconstruction of left neighboring state
-        :type p3_L: jnp.DeviceArray
+        :type p3_L: jax.Array
         :param p3_R: Third-order pressure reconstruction of right neighboring state
-        :type p3_R: jnp.DeviceArray
+        :type p3_R: jax.Array
         :param alpha_3: Third-order reconstruction weight
-        :type alpha_3: jnp.DeviceArray
+        :type alpha_3: jax.Array
         :param fs: Shock sensor.
-        :type fs: jnp.DeviceArray
+        :type fs: jax.Array
         :param axis: Spatial direction along which flux is calculated.
         :type axis: int
         :return: Numerical flux in axis drection.
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         
         phi_delta = phi_R - phi_L
@@ -170,21 +170,21 @@ class ALDM:
 
         return jnp.stack(fluxes_xi)
 
-    def reconstruct_xi(self, phi: jnp.DeviceArray, alpha_1: jnp.DeviceArray, alpha_2: jnp.DeviceArray, alpha_3: jnp.DeviceArray, 
-        fs: jnp.DeviceArray, axis: int, j: int, dx: float = None) -> Tuple[jnp.DeviceArray, jnp.DeviceArray]:
+    def reconstruct_xi(self, phi: jax.Array, alpha_1: jax.Array, alpha_2: jax.Array, alpha_3: jax.Array, 
+        fs: jax.Array, axis: int, j: int, dx: float = None) -> Tuple[jax.Array, jax.Array]:
         """Reconstructs the phi vector along the axis direction. Reconstruction is done
         via a convex combination of modified WENO1, WENO3 and WENO5.
 
         :param phi: Buffer of phi vector.
-        :type phi: jnp.DeviceArray
+        :type phi: jax.Array
         :param alpha_1: First-order reconstruction weight.
-        :type alpha_1: jnp.DeviceArray
+        :type alpha_1: jax.Array
         :param alpha_2: Second-order reconstruction weight.
-        :type alpha_2: jnp.DeviceArray
+        :type alpha_2: jax.Array
         :param alpha_3: Third-order reconstruction weight.
-        :type alpha_3: jnp.DeviceArray
+        :type alpha_3: jax.Array
         :param fs: Shock sensor.
-        :type fs: jnp.DeviceArray
+        :type fs: jax.Array
         :param axis: Spatial direction along which reconstruction is done.
         :type axis: int
         :param j: Bit indicating whether reconstruction is left (j=0) or right (j=1)
@@ -193,7 +193,7 @@ class ALDM:
         :param dx: Vector of cell sizes in axis direction, defaults to None
         :type dx: float, optional
         :return: Reconstructed phi vector and reconstructed third-oder pressure value.
-        :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]
+        :rtype: Tuple[jax.Array, jax.Array]
         """
         cell_state_1 = self.ALDM_WENO1.reconstruct_xi(phi, axis, j)             # WENO 1
         cell_state_2 = self.ALDM_WENO3.reconstruct_xi(phi, axis, j)             # WENO 3
@@ -203,7 +203,7 @@ class ALDM:
 
         return cell_state_xi_j, cell_state_3[4]
 
-    def compute_phi(self, primes: jnp.DeviceArray, cons: jnp.DeviceArray) -> jnp.DeviceArray:
+    def compute_phi(self, primes: jax.Array, cons: jax.Array) -> jax.Array:
         """Computes the phi vector which is the quantity that is reconstructed
         in the ALDM scheme.
 
@@ -211,11 +211,11 @@ class ALDM:
             \bar{phi} = {\bar{rho}, \bar{u1}, \bar{u2}, \bar{u3}, \bar{p}, \bar{rho_e}}
 
         :param primes: Buffer of primitive variables.
-        :type primes: jnp.DeviceArray
+        :type primes: jax.Array
         :param cons: Buffer of conservative variables.
-        :type cons: jnp.DeviceArray
+        :type cons: jax.Array
         :return: Buffer of the phi vector.
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         rho_e = cons[4] - 0.5 * primes[0] * (primes[1] * primes[1] + primes[2] * primes[2] + primes[3] * primes[3])
         phi = jnp.stack([primes[0], primes[1], primes[2], primes[3], primes[4], rho_e], axis=0)

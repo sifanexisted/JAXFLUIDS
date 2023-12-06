@@ -163,7 +163,7 @@
 <span class="sd">        :param position: Center position</span>
 <span class="sd">        :type position: List</span>
 <span class="sd">        :return: Levelset buffer</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">mesh_grid</span>   <span class="o">=</span> <span class="p">[</span><span class="n">jnp</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_centers</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_axis_indices</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mesh_grid</span><span class="p">)):</span>
@@ -184,7 +184,7 @@
 <span class="sd">        :param radius: Radius of the corners, defaults to None</span>
 <span class="sd">        :type radius: float, optional</span>
 <span class="sd">        :return: Leveset buffer</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">mesh_grid</span> <span class="o">=</span> <span class="p">[</span><span class="n">jnp</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_centers</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_axis_indices</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mesh_grid</span><span class="p">)):</span>
@@ -232,7 +232,7 @@
 <span class="sd">        :param position: Center position</span>
 <span class="sd">        :type position: float</span>
 <span class="sd">        :return: _description_</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">mesh_grid</span> <span class="o">=</span> <span class="p">[</span><span class="n">jnp</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_centers</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_axis_indices</span><span class="p">]</span>
@@ -246,7 +246,7 @@
         <span class="sd">&quot;&quot;&quot;Creates the levelset field either from the user defined lambda or from the user defined building blocks.</span>
 
 <span class="sd">        :return: Levelset buffer</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># CREATE BUFFER</span>

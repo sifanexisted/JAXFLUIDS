@@ -163,13 +163,13 @@
         <span class="sd">&quot;&quot;&quot;Computes the numerical flux in the axis direction.</span>
 
 <span class="sd">        :param prime: Buffer of primitive variables.</span>
-<span class="sd">        :type prime: jnp.DeviceArray</span>
+<span class="sd">        :type prime: jax.Array</span>
 <span class="sd">        :param cons: Buffer of conservative variables.</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :param axis: Spatial direction in which the flux is computed.</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Numerical flux in specified direction.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Evaluate shock sensor</span>
         <span class="n">fs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shock_sensor</span><span class="o">.</span><span class="n">compute_sensor_function</span><span class="p">(</span><span class="n">prime</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">axis</span><span class="p">)</span>
@@ -196,21 +196,21 @@
 <span class="sd">        p3_K is third-order pressure reconstruction</span>
 
 <span class="sd">        :param phi_L: Phi vector of left neighboring state</span>
-<span class="sd">        :type phi_L: jnp.DeviceArray</span>
+<span class="sd">        :type phi_L: jax.Array</span>
 <span class="sd">        :param phi_R: Phi vector of right neighboring state</span>
-<span class="sd">        :type phi_R: jnp.DeviceArray</span>
+<span class="sd">        :type phi_R: jax.Array</span>
 <span class="sd">        :param p3_L: Third-order pressure reconstruction of left neighboring state</span>
-<span class="sd">        :type p3_L: jnp.DeviceArray</span>
+<span class="sd">        :type p3_L: jax.Array</span>
 <span class="sd">        :param p3_R: Third-order pressure reconstruction of right neighboring state</span>
-<span class="sd">        :type p3_R: jnp.DeviceArray</span>
+<span class="sd">        :type p3_R: jax.Array</span>
 <span class="sd">        :param alpha_3: Third-order reconstruction weight</span>
-<span class="sd">        :type alpha_3: jnp.DeviceArray</span>
+<span class="sd">        :type alpha_3: jax.Array</span>
 <span class="sd">        :param fs: Shock sensor.</span>
-<span class="sd">        :type fs: jnp.DeviceArray</span>
+<span class="sd">        :type fs: jax.Array</span>
 <span class="sd">        :param axis: Spatial direction along which flux is calculated.</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Numerical flux in axis drection.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">phi_delta</span> <span class="o">=</span> <span class="n">phi_R</span> <span class="o">-</span> <span class="n">phi_L</span>
@@ -262,15 +262,15 @@
 <span class="sd">        via a convex combination of modified WENO1, WENO3 and WENO5.</span>
 
 <span class="sd">        :param phi: Buffer of phi vector.</span>
-<span class="sd">        :type phi: jnp.DeviceArray</span>
+<span class="sd">        :type phi: jax.Array</span>
 <span class="sd">        :param alpha_1: First-order reconstruction weight.</span>
-<span class="sd">        :type alpha_1: jnp.DeviceArray</span>
+<span class="sd">        :type alpha_1: jax.Array</span>
 <span class="sd">        :param alpha_2: Second-order reconstruction weight.</span>
-<span class="sd">        :type alpha_2: jnp.DeviceArray</span>
+<span class="sd">        :type alpha_2: jax.Array</span>
 <span class="sd">        :param alpha_3: Third-order reconstruction weight.</span>
-<span class="sd">        :type alpha_3: jnp.DeviceArray</span>
+<span class="sd">        :type alpha_3: jax.Array</span>
 <span class="sd">        :param fs: Shock sensor.</span>
-<span class="sd">        :type fs: jnp.DeviceArray</span>
+<span class="sd">        :type fs: jax.Array</span>
 <span class="sd">        :param axis: Spatial direction along which reconstruction is done.</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :param j: Bit indicating whether reconstruction is left (j=0) or right (j=1)</span>
@@ -279,7 +279,7 @@
 <span class="sd">        :param dx: Vector of cell sizes in axis direction, defaults to None</span>
 <span class="sd">        :type dx: float, optional</span>
 <span class="sd">        :return: Reconstructed phi vector and reconstructed third-oder pressure value.</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cell_state_1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ALDM_WENO1</span><span class="o">.</span><span class="n">reconstruct_xi</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>             <span class="c1"># WENO 1</span>
         <span class="n">cell_state_2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ALDM_WENO3</span><span class="o">.</span><span class="n">reconstruct_xi</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>             <span class="c1"># WENO 3</span>
@@ -297,11 +297,11 @@
 <span class="sd">            \bar{phi} = {\bar{rho}, \bar{u1}, \bar{u2}, \bar{u3}, \bar{p}, \bar{rho_e}}</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param cons: Buffer of conservative variables.</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :return: Buffer of the phi vector.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">rho_e</span> <span class="o">=</span> <span class="n">cons</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">primes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">primes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">primes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">primes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">primes</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
         <span class="n">phi</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">primes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">primes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">primes</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">primes</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">rho_e</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>

@@ -63,7 +63,7 @@ class DerivativeFirstOrderSidedSubcellFix(SpatialDerivative):
 
         self.sign = [1, -1]
 
-    def derivative_xi(self, levelset: jnp.DeviceArray, dxi: jnp.DeviceArray, i: int, j: int, levelset_0: jnp.DeviceArray, distance: jnp.DeviceArray) -> jnp.DeviceArray:
+    def derivative_xi(self, levelset: jax.Array, dxi: jax.Array, i: int, j: int, levelset_0: jax.Array, distance: jax.Array) -> jax.Array:
         
         slice = self.s_[j][i]
 

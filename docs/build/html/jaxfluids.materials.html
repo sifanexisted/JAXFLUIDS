@@ -233,15 +233,15 @@ e = e(p, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Specific internal energy buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -253,13 +253,13 @@ e = e(p, rho)</p>
 Gamma = p_e / rho; p_e is partial derivative of pressure wrt internal specific energy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p>
+<dd class="field-odd"><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Grueneisen</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -272,15 +272,15 @@ p = p(e, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>e</strong> (<em>jnp.DeviceArray</em>) – Specific internal energy buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>e</strong> (<em>jax.Array</em>) – Specific internal energy buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Pressue buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -293,15 +293,15 @@ psi = p_rho; p_rho is partial derivative of pressure wrt density.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Psi</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -314,15 +314,15 @@ c = c(p, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Speed of sound buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -335,15 +335,15 @@ T = T(p, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Temperature buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -356,18 +356,18 @@ E = E(p, rho, velX, velY, velZ)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
-<li><p><strong>u</strong> (<em>jnp.DeviceArray</em>) – Velocity in x direction</p></li>
-<li><p><strong>v</strong> (<em>jnp.DeviceArray</em>) – Velocity in y direction</p></li>
-<li><p><strong>w</strong> (<em>jnp.DeviceArray</em>) – Velocity in z direction</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
+<li><p><strong>u</strong> (<em>jax.Array</em>) – Velocity in x direction</p></li>
+<li><p><strong>v</strong> (<em>jax.Array</em>) – Velocity in y direction</p></li>
+<li><p><strong>w</strong> (<em>jax.Array</em>) – Velocity in z direction</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Total energy per unit volume</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -380,18 +380,18 @@ H = H(p, rho, velX, velY, velZ)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
-<li><p><strong>u</strong> (<em>jnp.DeviceArray</em>) – Velocity in x direction</p></li>
-<li><p><strong>v</strong> (<em>jnp.DeviceArray</em>) – Velocity in y direction</p></li>
-<li><p><strong>w</strong> (<em>jnp.DeviceArray</em>) – Velocity in z direction</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
+<li><p><strong>u</strong> (<em>jax.Array</em>) – Velocity in x direction</p></li>
+<li><p><strong>v</strong> (<em>jax.Array</em>) – Velocity in y direction</p></li>
+<li><p><strong>w</strong> (<em>jax.Array</em>) – Velocity in z direction</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Total specific enthalpy buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -538,15 +538,15 @@ e = e(p, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Specific internal energy buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -558,13 +558,13 @@ e = e(p, rho)</p>
 Gamma = p_e / rho; p_e is partial derivative of pressure wrt internal specific energy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p>
+<dd class="field-odd"><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Grueneisen</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -577,15 +577,15 @@ p = p(e, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>e</strong> (<em>jnp.DeviceArray</em>) – Specific internal energy buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>e</strong> (<em>jax.Array</em>) – Specific internal energy buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Pressue buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -598,15 +598,15 @@ psi = p_rho; p_rho is partial derivative of pressure wrt density.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Psi</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -619,15 +619,15 @@ c = c(p, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Speed of sound buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -640,15 +640,15 @@ T = T(p, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Temperature buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -661,18 +661,18 @@ E = E(p, rho, velX, velY, velZ)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
-<li><p><strong>u</strong> (<em>jnp.DeviceArray</em>) – Velocity in x direction</p></li>
-<li><p><strong>v</strong> (<em>jnp.DeviceArray</em>) – Velocity in y direction</p></li>
-<li><p><strong>w</strong> (<em>jnp.DeviceArray</em>) – Velocity in z direction</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
+<li><p><strong>u</strong> (<em>jax.Array</em>) – Velocity in x direction</p></li>
+<li><p><strong>v</strong> (<em>jax.Array</em>) – Velocity in y direction</p></li>
+<li><p><strong>w</strong> (<em>jax.Array</em>) – Velocity in z direction</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Total energy per unit volume</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -685,18 +685,18 @@ H = H(p, rho, velX, velY, velZ)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
-<li><p><strong>u</strong> (<em>jnp.DeviceArray</em>) – Velocity in x direction</p></li>
-<li><p><strong>v</strong> (<em>jnp.DeviceArray</em>) – Velocity in y direction</p></li>
-<li><p><strong>w</strong> (<em>jnp.DeviceArray</em>) – Velocity in z direction</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
+<li><p><strong>u</strong> (<em>jax.Array</em>) – Velocity in x direction</p></li>
+<li><p><strong>v</strong> (<em>jax.Array</em>) – Velocity in y direction</p></li>
+<li><p><strong>w</strong> (<em>jax.Array</em>) – Velocity in z direction</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Total specific enthalpy buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -719,15 +719,15 @@ e = e(p, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Specific internal energy buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -739,13 +739,13 @@ e = e(p, rho)</p>
 Gamma = p_e / rho; p_e is partial derivative of pressure wrt internal specific energy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p>
+<dd class="field-odd"><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Grueneisen</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -758,15 +758,15 @@ p = p(e, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>e</strong> (<em>jnp.DeviceArray</em>) – Specific internal energy buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>e</strong> (<em>jax.Array</em>) – Specific internal energy buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Pressue buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -779,15 +779,15 @@ psi = p_rho; p_rho is partial derivative of pressure wrt density.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Psi</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -800,15 +800,15 @@ c = c(p, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Speed of sound buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -821,15 +821,15 @@ T = T(p, rho)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Temperature buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -842,18 +842,18 @@ E = E(p, rho, velX, velY, velZ)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
-<li><p><strong>u</strong> (<em>jnp.DeviceArray</em>) – Velocity in x direction</p></li>
-<li><p><strong>v</strong> (<em>jnp.DeviceArray</em>) – Velocity in y direction</p></li>
-<li><p><strong>w</strong> (<em>jnp.DeviceArray</em>) – Velocity in z direction</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
+<li><p><strong>u</strong> (<em>jax.Array</em>) – Velocity in x direction</p></li>
+<li><p><strong>v</strong> (<em>jax.Array</em>) – Velocity in y direction</p></li>
+<li><p><strong>w</strong> (<em>jax.Array</em>) – Velocity in z direction</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Total energy per unit volume</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -866,18 +866,18 @@ H = H(p, rho, velX, velY, velZ)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>p</strong> (<em>jnp.DeviceArray</em>) – Pressure buffer</p></li>
-<li><p><strong>rho</strong> (<em>jnp.DeviceArray</em>) – Density buffer</p></li>
-<li><p><strong>u</strong> (<em>jnp.DeviceArray</em>) – Velocity in x direction</p></li>
-<li><p><strong>v</strong> (<em>jnp.DeviceArray</em>) – Velocity in y direction</p></li>
-<li><p><strong>w</strong> (<em>jnp.DeviceArray</em>) – Velocity in z direction</p></li>
+<li><p><strong>p</strong> (<em>jax.Array</em>) – Pressure buffer</p></li>
+<li><p><strong>rho</strong> (<em>jax.Array</em>) – Density buffer</p></li>
+<li><p><strong>u</strong> (<em>jax.Array</em>) – Velocity in x direction</p></li>
+<li><p><strong>v</strong> (<em>jax.Array</em>) – Velocity in y direction</p></li>
+<li><p><strong>w</strong> (<em>jax.Array</em>) – Velocity in z direction</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Total specific enthalpy buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>

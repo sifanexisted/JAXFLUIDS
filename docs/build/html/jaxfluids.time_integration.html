@@ -167,8 +167,8 @@ Implementation in child class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – conservative variables buffer before integration</p></li>
-<li><p><strong>rhs</strong> (<em>jnp.DeviceArray</em>) – right-hand side buffer</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – conservative variables buffer before integration</p></li>
+<li><p><strong>rhs</strong> (<em>jax.Array</em>) – right-hand side buffer</p></li>
 <li><p><strong>timestep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – timestep to be integrated</p></li>
 </ul>
 </dd>
@@ -206,8 +206,8 @@ Implementation in child class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – conservative variables buffer before integration</p></li>
-<li><p><strong>rhs</strong> (<em>jnp.DeviceArray</em>) – right-hand side buffer</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – conservative variables buffer before integration</p></li>
+<li><p><strong>rhs</strong> (<em>jax.Array</em>) – right-hand side buffer</p></li>
 <li><p><strong>timestep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – timestep to be integrated</p></li>
 </ul>
 </dd>
@@ -246,8 +246,8 @@ Implementation in child class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – conservative variables buffer before integration</p></li>
-<li><p><strong>rhs</strong> (<em>jnp.DeviceArray</em>) – right-hand side buffer</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – conservative variables buffer before integration</p></li>
+<li><p><strong>rhs</strong> (<em>jax.Array</em>) – right-hand side buffer</p></li>
 <li><p><strong>timestep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – timestep to be integrated</p></li>
 </ul>
 </dd>
@@ -280,8 +280,8 @@ Implementation in child class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – conservative variables buffer before integration</p></li>
-<li><p><strong>rhs</strong> (<em>jnp.DeviceArray</em>) – right-hand side buffer</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – conservative variables buffer before integration</p></li>
+<li><p><strong>rhs</strong> (<em>jax.Array</em>) – right-hand side buffer</p></li>
 <li><p><strong>timestep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – timestep to be integrated</p></li>
 </ul>
 </dd>
@@ -301,8 +301,8 @@ Implementation in child class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – conservative variables buffer before integration</p></li>
-<li><p><strong>rhs</strong> (<em>jnp.DeviceArray</em>) – right-hand side buffer</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – conservative variables buffer before integration</p></li>
+<li><p><strong>rhs</strong> (<em>jax.Array</em>) – right-hand side buffer</p></li>
 <li><p><strong>timestep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – timestep adjusted according to sub-stage in Runge-Kutta</p></li>
 </ul>
 </dd>
@@ -323,8 +323,8 @@ Implementation in child class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of conservative variables.</p></li>
-<li><p><strong>init</strong> (<em>jnp.DeviceArray</em>) – Initial conservative buffer.</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of conservative variables.</p></li>
+<li><p><strong>init</strong> (<em>jax.Array</em>) – Initial conservative buffer.</p></li>
 <li><p><strong>stage</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Current stage of the RK time integrator.</p></li>
 </ul>
 </dd>
@@ -332,7 +332,7 @@ Implementation in child class.</p>
 <dd class="field-even"><p>Sum of initial buffer and current buffer.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>

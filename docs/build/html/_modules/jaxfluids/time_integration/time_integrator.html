@@ -141,9 +141,9 @@
         <span class="sd">&quot;&quot;&quot;Integrates the conservative variables.</span>
 
 <span class="sd">        :param cons: conservative variables buffer before integration</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :param rhs: right-hand side buffer </span>
-<span class="sd">        :type rhs: jnp.DeviceArray</span>
+<span class="sd">        :type rhs: jax.Array</span>
 <span class="sd">        :param timestep: timestep adjusted according to sub-stage in Runge-Kutta</span>
 <span class="sd">        :type timestep: float</span>
 <span class="sd">        :return: conservative variables buffer after integration</span>
@@ -159,9 +159,9 @@
 <span class="sd">        Implementation in child class.</span>
 
 <span class="sd">        :param cons: conservative variables buffer before integration</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :param rhs: right-hand side buffer </span>
-<span class="sd">        :type rhs: jnp.DeviceArray</span>
+<span class="sd">        :type rhs: jax.Array</span>
 <span class="sd">        :param timestep: timestep to be integrated</span>
 <span class="sd">        :type timestep: float</span>
 <span class="sd">        :return: conservative variables buffer after integration</span>
@@ -174,13 +174,13 @@
 <span class="sd">        Implementation in child class.</span>
 
 <span class="sd">        :param cons: Buffer of conservative variables.</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :param init: Initial conservative buffer.</span>
-<span class="sd">        :type init: jnp.DeviceArray</span>
+<span class="sd">        :type init: jax.Array</span>
 <span class="sd">        :param stage: Current stage of the RK time integrator.</span>
 <span class="sd">        :type stage: int</span>
 <span class="sd">        :return: Sum of initial buffer and current buffer.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div></div>
 </pre></div>

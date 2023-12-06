@@ -188,11 +188,11 @@
 <span class="sd">        phi = [rho, rho * velX, rho * velY, rho * velZ, H]</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param cons: Buffer of conservative variables.</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :return: Buffer of phi variable.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">rho</span> <span class="o">=</span>  <span class="n">cons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
         <span class="n">rhou</span> <span class="o">=</span> <span class="n">cons</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 

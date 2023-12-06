@@ -126,11 +126,11 @@
     <span class="sd">&quot;&quot;&quot;Converts primitive variables to conservative variables.</span>
 
 <span class="sd">    :param primes: Buffer of primitive variables</span>
-<span class="sd">    :type primes: jnp.DeviceArray</span>
+<span class="sd">    :type primes: jax.Array</span>
 <span class="sd">    :param material_manager: Class that calculats material quantities </span>
 <span class="sd">    :type material_manager: MaterialManager</span>
 <span class="sd">    :return: Buffer of conservative variables</span>
-<span class="sd">    :rtype: jnp.DeviceArray</span>
+<span class="sd">    :rtype: jax.Array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">e</span>    <span class="o">=</span> <span class="n">material_manager</span><span class="o">.</span><span class="n">get_energy</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">primes</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">rho</span> <span class="o">=</span> <span class="n">primes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">rho</span>  <span class="o">=</span> <span class="n">primes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># = rho</span>
@@ -145,11 +145,11 @@
     <span class="sd">&quot;&quot;&quot;Converts conservative variables to primitive variables.</span>
 
 <span class="sd">    :param cons: Buffer of conservative variables</span>
-<span class="sd">    :type cons: jnp.DeviceArray</span>
+<span class="sd">    :type cons: jax.Array</span>
 <span class="sd">    :param material_manager: Class that calculats material quantities</span>
 <span class="sd">    :type material_manager: MaterialManager</span>
 <span class="sd">    :return: Buffer of primitive variables</span>
-<span class="sd">    :rtype: jnp.DeviceArray</span>
+<span class="sd">    :rtype: jax.Array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rho</span> <span class="o">=</span>  <span class="n">cons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># rho = rho</span>
     <span class="n">u</span> <span class="o">=</span>  <span class="n">cons</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">cons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span>  <span class="c1"># u = rho*u / rho</span>
@@ -165,13 +165,13 @@
 <span class="sd">    Cf. Eq. (3.65) in Toro.</span>
 
 <span class="sd">    :param primes: Buffer of primitive variables</span>
-<span class="sd">    :type primes: jnp.DeviceArray</span>
+<span class="sd">    :type primes: jax.Array</span>
 <span class="sd">    :param cons: Buffer of conservative variables</span>
-<span class="sd">    :type cons: jnp.DeviceArray</span>
+<span class="sd">    :type cons: jax.Array</span>
 <span class="sd">    :param axis: Spatial direction along which fluxes are calculated</span>
 <span class="sd">    :type axis: int</span>
 <span class="sd">    :return: Physical fluxes in axis direction</span>
-<span class="sd">    :rtype: jnp.DeviceArray</span>
+<span class="sd">    :rtype: jax.Array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rho_ui</span>      <span class="o">=</span> <span class="n">cons</span><span class="p">[</span><span class="n">axis</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># (rho u_i)</span>
     <span class="n">rho_ui_u1</span>   <span class="o">=</span> <span class="n">cons</span><span class="p">[</span><span class="n">axis</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># (rho u_i) * u_1</span>

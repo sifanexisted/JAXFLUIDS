@@ -36,7 +36,7 @@ class LaxFriedrichs(RiemannSolver):
     def __init__(self, material_manager: MaterialManager, signal_speed) -> None:
         super().__init__(material_manager, signal_speed)
 
-    def solve_riemann_problem_xi(self, primes_L: jnp.DeviceArray, primes_R: jnp.DeviceArray, 
-        cons_L: jnp.DeviceArray, cons_R: jnp.DeviceArray, axis: int, **kwargs) -> jnp.DeviceArray:
+    def solve_riemann_problem_xi(self, primes_L: jax.Array, primes_R: jax.Array, 
+        cons_L: jax.Array, cons_R: jax.Array, axis: int, **kwargs) -> jax.Array:
         # TODO
         pass

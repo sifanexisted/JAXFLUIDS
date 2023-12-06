@@ -54,7 +54,7 @@ class SpaceSolver:
     """
 
     def __init__(self, domain_information: DomainInformation, material_manager: MaterialManager, numerical_setup: Dict,
-        gravity: jnp.DeviceArray, levelset_type: Tuple[None, str], levelset_handler: Union[LevelsetHandler, None]) -> None:
+        gravity: jax.Array, levelset_type: Tuple[None, str], levelset_handler: Union[LevelsetHandler, None]) -> None:
         
         self.flux_computer      = FluxComputer(
             numerical_setup,
@@ -95,24 +95,24 @@ class SpaceSolver:
             [jnp.s_[...,:,:,1:], jnp.s_[...,:,:,:-1]],
         ]
 
-    def compute_rhs(self, cons: jnp.DeviceArray, primes: jnp.DeviceArray, current_time: float, 
-        levelset: jnp.DeviceArray = None, volume_fraction: jnp.DeviceArray = None,
+    def compute_rhs(self, cons: jax.Array, primes: jax.Array, current_time: float,
+        levelset: jax.Array = None, volume_fraction: jax.Array = None,
         apertures: List = None, forcings_dictionary: Union[Dict, None] = None,
-        ml_parameters_dict: Union[Dict, None] = None, ml_networks_dict: Union[Dict, None] = None) -> Tuple[jnp.DeviceArray, Union[jnp.DeviceArray, None], Union[float, None]]:
+        ml_parameters_dict: Union[Dict, None] = None, ml_networks_dict: Union[Dict, None] = None) -> Tuple[jax.Array, Union[jax.Array, None], Union[float, None]]:
         """Computes the right-hand-side of the Navier-Stokes equations depending 
         on active physics and active axis. For levelset simulations with FLUID-FLUID or FLUID-SOLID-DYNAMIC
         interface interactions, also computes the right-hand-side of the levelset advection.
 
         :param cons: Buffer of conservative variables
-        :type cons: jnp.DeviceArray
+        :type cons: jax.Array
         :param primes: Buffer of primitive variables
-        :type primes: jnp.DeviceArray
+        :type primes: jax.Array
         :param current_time: Current physical simulation time
         :type current_time: float
         :param levelset: Levelset buffer, defaults to None
-        :type levelset: jnp.DeviceArray, optional
+        :type levelset: jax.Array, optional
         :param volume_fraction: Volume fraction buffer, defaults to None
-        :type volume_fraction: jnp.DeviceArray, optional
+        :type volume_fraction: jax.Array, optional
         :param apertures: Aperture buffers, defaults to None
         :type apertures: List, optional
         :param forcings_dictionary: Forcings dictionary, defaults to None
@@ -123,7 +123,7 @@ class SpaceSolver:
         :type ml_networks_dict: Union[Dict, None], optional
         :return: Tuple containing the right-hand-side buffer of the Navier-Stokes equations, the
         right-hand-side buffer of the levelset advection equation and the maximum extension residual of the interface quantities 
-        :rtype: Tuple[jnp.DeviceArray, Union[jnp.DeviceArray, None], Union[float, None]]
+        :rtype: Tuple[jax.Array, Union[jax.Array, None], Union[float, None]]
         """
 
         # COMPUTE TEMPERATURE

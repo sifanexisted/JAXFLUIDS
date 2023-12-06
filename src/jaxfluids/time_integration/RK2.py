@@ -44,11 +44,11 @@ class RungeKutta2(TimeIntegrator):
         self.timestep_multiplier = (1.0, 0.5)
         self.timestep_increment_factor = (1.0, 1.0) 
 
-    def prepare_buffer_for_integration(self, cons: jnp.DeviceArray, init: jnp.DeviceArray, stage: int) -> jnp.DeviceArray:
+    def prepare_buffer_for_integration(self, cons: jax.Array, init: jax.Array, stage: int) -> jax.Array:
         """ u_cons = 0.5 u^n + 0.5 u^* """
         return 0.5*cons + 0.5*init
 
-    def integrate(self, cons: jnp.DeviceArray, rhs: jnp.DeviceArray, timestep: float, stage: int) -> jnp.DeviceArray:
+    def integrate(self, cons: jax.Array, rhs: jax.Array, timestep: float, stage: int) -> jax.Array:
         timestep = timestep * self.timestep_multiplier[stage]
         cons = self.integrate_conservatives(cons, rhs, timestep)
         return cons

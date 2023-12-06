@@ -77,7 +77,7 @@ class WENO3DERIV(SpatialDerivative):
         else:
             assert False, "WENO3DERIV face_value must be left or right"
         
-    def derivative_xi(self, levelset: jnp.DeviceArray, dx: float, i: int, j: int, *args) -> jnp.DeviceArray:
+    def derivative_xi(self, levelset: jax.Array, dx: float, i: int, j: int, *args) -> jax.Array:
         levelset = self.derivative_stencil.derivative_xi(levelset, dx, i, j=self.sided_deriv_upwind)
         s1_ = self._slices[j][i]
 

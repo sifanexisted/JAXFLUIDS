@@ -358,8 +358,8 @@ according to the dirichlet boundary condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Conservative variable buffer</p></li>
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Primitive variable buffer</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Conservative variable buffer</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Primitive variable buffer</p></li>
 <li><p><strong>location</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Boundary location</p></li>
 <li><p><strong>functions</strong> (<em>Union</em><em>[</em><em>Callable</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – Dirichlet functions</p></li>
 <li><p><strong>current_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current physical simulation time</p></li>
@@ -370,7 +370,7 @@ according to the dirichlet boundary condition.</p>
 <dd class="field-even"><p>Primitive and conservative variable buffers with filled halos at specified location</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -381,13 +381,13 @@ according to the dirichlet boundary condition.</p>
 <dd><p>Fills the levelset buffer halo cells.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>levelset</strong> (<em>jnp.DeviceArray</em>) – Levelset buffer</p>
+<dd class="field-odd"><p><strong>levelset</strong> (<em>jax.Array</em>) – Levelset buffer</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Levelset buffer with filled halo cells</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -399,8 +399,8 @@ according to the dirichlet boundary condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of conservative variables</p></li>
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of conservative variables</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables</p></li>
 <li><p><strong>current_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current physical simulation time</p></li>
 </ul>
 </dd>
@@ -408,7 +408,7 @@ according to the dirichlet boundary condition.</p>
 <dd class="field-even"><p>Primitive and conservative variable buffer with filled halo cells</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -419,13 +419,13 @@ according to the dirichlet boundary condition.</p>
 <dd><p>Fills the levelset buffer halo cells that are located at the diagional extension of the domain.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>levelset</strong> (<em>jnp.DeviceArray</em>) – Levelset buffer</p>
+<dd class="field-odd"><p><strong>levelset</strong> (<em>jax.Array</em>) – Levelset buffer</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Levelset buffer with filled halo cells at the corners</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -436,13 +436,13 @@ according to the dirichlet boundary condition.</p>
 <dd><p>Fills the prime buffer halo cells that are located at the diagonal extension of the domain.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of the primitive variables</p>
+<dd class="field-odd"><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of the primitive variables</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Primitive variables buffer with filled halo cells at the corners</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -496,8 +496,8 @@ location according to the neumann boundary condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Conservative variable buffer</p></li>
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Primitive variable buffer</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Conservative variable buffer</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Primitive variable buffer</p></li>
 <li><p><strong>location</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Boundary location</p></li>
 <li><p><strong>functions</strong> (<em>Union</em><em>[</em><em>Callable</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – Neumann functions</p></li>
 <li><p><strong>current_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current physical simulation time</p></li>
@@ -508,7 +508,7 @@ location according to the neumann boundary condition.</p>
 <dd class="field-even"><p>Primitive and conservative variable buffers with filled halos at specified location</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -521,8 +521,8 @@ the specified location according to the periodic boundary condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Conservative variable buffer</p></li>
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Primitive variable buffer</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Conservative variable buffer</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Primitive variable buffer</p></li>
 <li><p><strong>location</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Boundary location</p></li>
 <li><p><strong>b_range</strong> (<em>List</em>) – List containing the spatial range of the boundary at the specified location</p></li>
 </ul>
@@ -531,7 +531,7 @@ the specified location according to the periodic boundary condition.</p>
 <dd class="field-even"><p>Primitive and conservative variable buffers with filled halos at specified location</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -549,8 +549,8 @@ at the specified location according to the symmetric boundary condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Conservative variable buffer</p></li>
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Primitive variable buffer</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Conservative variable buffer</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Primitive variable buffer</p></li>
 <li><p><strong>location</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Boundary location</p></li>
 <li><p><strong>b_range</strong> (<em>List</em>) – List containing the spatial range of the boundary at the specified location</p></li>
 </ul>
@@ -559,7 +559,7 @@ at the specified location according to the symmetric boundary condition.</p>
 <dd class="field-even"><p>Primitive and conservative variable buffers with filled halos at specified location</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -577,8 +577,8 @@ location according to the no-slip wall boundary condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Conservative variable buffer</p></li>
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Primitive variable buffer</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Conservative variable buffer</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Primitive variable buffer</p></li>
 <li><p><strong>location</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Boundary location</p></li>
 <li><p><strong>functions</strong> (<em>Dict</em>) – Wall velocity functions</p></li>
 <li><p><strong>current_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current physical simulation time</p></li>
@@ -589,7 +589,7 @@ location according to the no-slip wall boundary condition.</p>
 <dd class="field-even"><p>Primitive and conservative variable buffers with filled halos at specified location</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -620,7 +620,7 @@ mesh, number of cells, extension in each spatial direction, active axis, domain 
 <dd class="field-even"><p>Cell center coordinates, cell face coordinates and cell sizes in xi direction</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -648,8 +648,8 @@ is called in the space solver by compute_convective_flux_xi().</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Primitive variable buffer</p></li>
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Conservative variable buffer</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Primitive variable buffer</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Conservative variable buffer</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction</p></li>
 <li><p><strong>ml_parameters_dict</strong> (<em>Union</em><em>[</em><em>Dict</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Dictionary of neural network weights, defaults to None</p></li>
 <li><p><strong>ml_networks_dict</strong> (<em>Union</em><em>[</em><em>Dict</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Dictionary of neural network architectures, defaults to None</p></li>
@@ -659,7 +659,7 @@ is called in the space solver by compute_convective_flux_xi().</p>
 <dd class="field-even"><p>Convective fluxes in axis direction</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -688,13 +688,13 @@ Note that if multiple of the above are provided, the priority is 1) - 4).</p>
 or from the user_prime_init argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>user_prime_init</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>jnp.DeviceArray</em><em>]</em><em>, </em><em>optional</em>) – User specified initial buffer for the primitive variables, defaults to None</p>
+<dd class="field-odd"><p><strong>user_prime_init</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>jax.Array</em><em>]</em><em>, </em><em>optional</em>) – User specified initial buffer for the primitive variables, defaults to None</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Dictionary of initial buffers</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, Union[jnp.DeviceArray, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]]]</p>
+<dd class="field-odd"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, Union[jax.Array, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -764,9 +764,9 @@ as well as end-to-end optimization of ML models.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables</p></li>
-<li><p><strong>levelset</strong> (<em>jnp.DeviceArray</em>) – Levelset buffer</p></li>
-<li><p><strong>volume_fraction</strong> (<em>jnp.DeviceArray</em>) – Volume fraction buffer</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables</p></li>
+<li><p><strong>levelset</strong> (<em>jax.Array</em>) – Levelset buffer</p></li>
+<li><p><strong>volume_fraction</strong> (<em>jax.Array</em>) – Volume fraction buffer</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -813,12 +813,12 @@ a single RK stage consists of the following:
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of conservative variables</p></li>
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of conservative variables</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables</p></li>
 <li><p><strong>timestep_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current physical time step size</p></li>
 <li><p><strong>current_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current physical simulation time</p></li>
-<li><p><strong>levelset</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Levelset buffer, defaults to None</p></li>
-<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Volume fraction buffer, defaults to None</p></li>
+<li><p><strong>levelset</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Levelset buffer, defaults to None</p></li>
+<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Volume fraction buffer, defaults to None</p></li>
 <li><p><strong>apertures</strong> (<em>Union</em><em>[</em><em>List</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Aperture buffers, defaults to None</p></li>
 <li><p><strong>reinitialize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em>, </em><em>optional</em>) – Flag indicating whether to reinitialize levelset in the present time step, defaults to False</p></li>
 <li><p><strong>forcings_dictionary</strong> (<em>Union</em><em>[</em><em>Dict</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Dictionary containing forcing buffers, defaults to None</p></li>
@@ -842,8 +842,8 @@ a single RK stage consists of the following:
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>batch_primes_init</strong> (<em>jnp.DeviceArray</em>) – batch of initial primitive variable buffers</p></li>
-<li><p><strong>batch_levelset_init</strong> (<em>jnp.DeviceArray</em>) – batch of initial levelset buffers</p></li>
+<li><p><strong>batch_primes_init</strong> (<em>jax.Array</em>) – batch of initial primitive variable buffers</p></li>
+<li><p><strong>batch_levelset_init</strong> (<em>jax.Array</em>) – batch of initial levelset buffers</p></li>
 <li><p><strong>n_steps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of integration steps</p></li>
 <li><p><strong>timestep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Physical time step size</p></li>
 <li><p><strong>t_start</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Physical start time</p></li>
@@ -856,7 +856,7 @@ a single RK stage consists of the following:
 <dd class="field-even"><p>_description_</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -885,7 +885,7 @@ logs the numerical and case setup, and writes the initial output.</p>
 </dd>
 </dl>
 <p>levelset quantitiy buffers, time control and mass flow forcing parameters
-:type buffer_dictionary: Dict[str, Dict[str, Union[jnp.DeviceArray, float]]]</p>
+:type buffer_dictionary: Dict[str, Dict[str, Union[jax.Array, float]]]</p>
 </dd></dl>
 
 </dd></dl>
@@ -915,11 +915,11 @@ interface interactions, also computes the right-hand-side of the levelset advect
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of conservative variables</p></li>
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of conservative variables</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables</p></li>
 <li><p><strong>current_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Current physical simulation time</p></li>
-<li><p><strong>levelset</strong> (<em>jnp.DeviceArray</em><em>, </em><em>optional</em>) – Levelset buffer, defaults to None</p></li>
-<li><p><strong>volume_fraction</strong> (<em>jnp.DeviceArray</em><em>, </em><em>optional</em>) – Volume fraction buffer, defaults to None</p></li>
+<li><p><strong>levelset</strong> (<em>jax.Array</em><em>, </em><em>optional</em>) – Levelset buffer, defaults to None</p></li>
+<li><p><strong>volume_fraction</strong> (<em>jax.Array</em><em>, </em><em>optional</em>) – Volume fraction buffer, defaults to None</p></li>
 <li><p><strong>apertures</strong> (<em>List</em><em>, </em><em>optional</em>) – Aperture buffers, defaults to None</p></li>
 <li><p><strong>forcings_dictionary</strong> (<em>Union</em><em>[</em><em>Dict</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Forcings dictionary, defaults to None</p></li>
 <li><p><strong>ml_parameters_dict</strong> (<em>Union</em><em>[</em><em>Dict</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Dictionary containing NN weights, defaults to None</p></li>
@@ -931,7 +931,7 @@ interface interactions, also computes the right-hand-side of the levelset advect
 </dd>
 </dl>
 <p>right-hand-side buffer of the levelset advection equation and the maximum extension residual of the interface quantities
-:rtype: Tuple[jnp.DeviceArray, Union[jnp.DeviceArray, None], Union[float, None]]</p>
+:rtype: Tuple[jax.Array, Union[jax.Array, None], Union[float, None]]</p>
 </dd></dl>
 
 </dd></dl>
@@ -951,7 +951,7 @@ interface interactions, also computes the right-hand-side of the levelset advect
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – Non-dimensional quantity buffer</p></li>
+<li><p><strong>value</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – Non-dimensional quantity buffer</p></li>
 <li><p><strong>quantity</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Quantity name</p></li>
 </ul>
 </dd>
@@ -959,7 +959,7 @@ interface interactions, also computes the right-hand-side of the levelset advect
 <dd class="field-even"><p>Dimensional quantity buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Union[jnp.DeviceArray, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
+<dd class="field-odd"><p>Union[jax.Array, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -971,7 +971,7 @@ interface interactions, also computes the right-hand-side of the levelset advect
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – Dimensional quantity buffer</p></li>
+<li><p><strong>value</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – Dimensional quantity buffer</p></li>
 <li><p><strong>quantity</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Quantity name</p></li>
 </ul>
 </dd>
@@ -979,7 +979,7 @@ interface interactions, also computes the right-hand-side of the levelset advect
 <dd class="field-even"><p>Non-dimensional quantity buffer</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Union[jnp.DeviceArray, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
+<dd class="field-odd"><p>Union[jax.Array, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1001,7 +1001,7 @@ interface interactions, also computes the right-hand-side of the levelset advect
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables</p></li>
 <li><p><strong>material_manager</strong> (<a class="reference internal" href="jaxfluids.materials.html#jaxfluids.materials.material_manager.MaterialManager" title="jaxfluids.materials.material_manager.MaterialManager"><em>MaterialManager</em></a>) – Class that calculats material quantities</p></li>
 </ul>
 </dd>
@@ -1009,7 +1009,7 @@ interface interactions, also computes the right-hand-side of the levelset advect
 <dd class="field-even"><p>Buffer of conservative variables</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1022,8 +1022,8 @@ Cf. Eq. (3.65) in Toro.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables</p></li>
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of conservative variables</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of conservative variables</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which fluxes are calculated</p></li>
 </ul>
 </dd>
@@ -1031,7 +1031,7 @@ Cf. Eq. (3.65) in Toro.</p>
 <dd class="field-even"><p>Physical fluxes in axis direction</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1043,7 +1043,7 @@ Cf. Eq. (3.65) in Toro.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of conservative variables</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of conservative variables</p></li>
 <li><p><strong>material_manager</strong> (<a class="reference internal" href="jaxfluids.materials.html#jaxfluids.materials.material_manager.MaterialManager" title="jaxfluids.materials.material_manager.MaterialManager"><em>MaterialManager</em></a>) – Class that calculats material quantities</p></li>
 </ul>
 </dd>
@@ -1051,7 +1051,7 @@ Cf. Eq. (3.65) in Toro.</p>
 <dd class="field-even"><p>Buffer of primitive variables</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1121,13 +1121,13 @@ Note that if multiple of the above are provided, the priority is 1) - 4).</p>
 or from the user_prime_init argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>user_prime_init</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>jnp.DeviceArray</em><em>]</em><em>, </em><em>optional</em>) – User specified initial buffer for the primitive variables, defaults to None</p>
+<dd class="field-odd"><p><strong>user_prime_init</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>jax.Array</em><em>]</em><em>, </em><em>optional</em>) – User specified initial buffer for the primitive variables, defaults to None</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Dictionary of initial buffers</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, Union[jnp.DeviceArray, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]]]</p>
+<dd class="field-odd"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, Union[jax.Array, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]]]</p>
 </dd>
 </dl>
 </dd></dl>

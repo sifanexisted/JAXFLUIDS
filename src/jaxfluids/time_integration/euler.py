@@ -44,7 +44,7 @@ class Euler(TimeIntegrator):
         self.timestep_multiplier = (1.0,)
         self.timestep_increment_factor = (1.0,) 
 
-    def integrate(self, cons: jnp.DeviceArray, rhs: jnp.DeviceArray, timestep: float, stage: int) -> jnp.DeviceArray:
+    def integrate(self, cons: jax.Array, rhs: jax.Array, timestep: float, stage: int) -> jax.Array:
         cons = self.integrate_conservatives(cons, rhs, timestep)
         return cons
 

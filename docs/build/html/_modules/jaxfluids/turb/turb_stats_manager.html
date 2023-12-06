@@ -156,7 +156,7 @@
 <span class="sd">        :param N: Resolution.</span>
 <span class="sd">        :type N: int</span>
 <span class="sd">        :return: Wavenumber grid and wavenumber vector.</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">Nf</span> <span class="o">=</span> <span class="n">N</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
@@ -170,9 +170,9 @@
         <span class="sd">&quot;&quot;&quot;Calculates the three-dimensional spectral energy spectrum of the input velocity.</span>
 
 <span class="sd">        :param velocity_hat: Velocity vector in spectral space.</span>
-<span class="sd">        :type velocity_hat: jnp.DeviceArray</span>
+<span class="sd">        :type velocity_hat: jax.Array</span>
 <span class="sd">        :return: Spectral energy spectrum.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">ek</span>          <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Nx</span><span class="p">)</span>
@@ -191,9 +191,9 @@
 <span class="sd">        Wrapper around self.energy_spectrum_spectral</span>
 
 <span class="sd">        :param velocity: Velocity vector in physical space.</span>
-<span class="sd">        :type velocity: jnp.DeviceArray</span>
+<span class="sd">        :type velocity: jax.Array</span>
 <span class="sd">        :return: Spectral energy spectrum.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">velocity_hat</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftn</span><span class="p">(</span><span class="n">velocity</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
@@ -203,7 +203,7 @@
         <span class="sd">&quot;&quot;&quot;Computes the turbulent statistics for the given primitive buffer.</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :return: Dictionary with turbulent statistics.</span>
 <span class="sd">        :rtype: Dict</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -214,7 +214,7 @@
         <span class="sd">&quot;&quot;&quot;Calculates statistics for homogeneous isotropic turbulence.</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :return: Dictionary with information on the HIT statistics.</span>
 <span class="sd">        :rtype: Dict</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -341,9 +341,9 @@
 <span class="sd">        omega = (du3/dx2 - du2/dx3, du1/dx3 - du3/dx1, du2/dx1 - du1/dx2)</span>
 
 <span class="sd">        :param velocity_hat: Buffer of velocities in spectral space.</span>
-<span class="sd">        :type velocity_hat: jnp.DeviceArray</span>
+<span class="sd">        :type velocity_hat: jax.Array</span>
 <span class="sd">        :return: Vorticity vector in physical space.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">omega_0</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfftn</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">velocity_hat</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_field</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">velocity_hat</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
@@ -361,9 +361,9 @@
 <span class="sd">                    du2/dx1 - du1/dx2]</span>
 
 <span class="sd">        :param velocity: Buffer of velocities in physical space.</span>
-<span class="sd">        :type velocity: jnp.DeviceArray</span>
+<span class="sd">        :type velocity: jax.Array</span>
 <span class="sd">        :return: Vorticity vector in physical space.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">velocity_hat</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftn</span><span class="p">(</span><span class="n">velocity</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
@@ -375,9 +375,9 @@
 <span class="sd">        dui/dxj = IFFT ( 1j * k_j * u_i_hat  )</span>
 
 <span class="sd">        :param velocity_hat: Buffer of velocities in spectral space.</span>
-<span class="sd">        :type velocity_hat: jnp.DeviceArray</span>
+<span class="sd">        :type velocity_hat: jax.Array</span>
 <span class="sd">        :return: Buffer of the shear tensor.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">duidj</span> <span class="o">=</span> <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[]]</span>
@@ -397,9 +397,9 @@
 <span class="sd">        ]</span>
 
 <span class="sd">        :param velocity: Buffer of velocities in physical space.</span>
-<span class="sd">        :type velocity: jnp.DeviceArray</span>
+<span class="sd">        :type velocity: jax.Array</span>
 <span class="sd">        :return: Buffer of the shear tensor.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
     
         <span class="n">velocity_hat</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftn</span><span class="p">(</span><span class="n">velocity</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
@@ -409,9 +409,9 @@
         <span class="sd">&quot;&quot;&quot;Calculates the dilatation of the given velocity field in spectral space.</span>
 
 <span class="sd">        :param velocity_hat: Buffer of velocities in spectral space.</span>
-<span class="sd">        :type velocity_hat: jnp.DeviceArray</span>
+<span class="sd">        :type velocity_hat: jax.Array</span>
 <span class="sd">        :return: Buffer of the dilatational field.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">dilatation_spectral</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_field</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">velocity_hat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">velocity_hat</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_field</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">velocity_hat</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
@@ -429,9 +429,9 @@
 <span class="sd">        dilatation = du1/dx1 + du2/dx2 + du3/dx3</span>
 
 <span class="sd">        :param velocity: Buffer of velocities in physical space.</span>
-<span class="sd">        :type velocity: jnp.DeviceArray</span>
+<span class="sd">        :type velocity: jax.Array</span>
 <span class="sd">        :return: Buffer of dilatational field.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">velocity_hat</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftn</span><span class="p">(</span><span class="n">velocity</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
@@ -441,9 +441,9 @@
         <span class="sd">&quot;&quot;&quot;Calculates the strain given the velocity gradient tensor.</span>
 
 <span class="sd">        :param duidj: Buffer of velocity gradient.</span>
-<span class="sd">        :type duidj: jnp.DeviceArray</span>
+<span class="sd">        :type duidj: jax.Array</span>
 <span class="sd">        :return: Buffer of strain tensor.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">S_ij</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span> <span class="n">duidj</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">duidj</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="p">)</span>

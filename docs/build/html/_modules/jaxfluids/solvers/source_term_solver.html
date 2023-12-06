@@ -166,9 +166,9 @@
         <span class="sd">&quot;&quot;&quot;Computes flux due to gravitational force.</span>
 
 <span class="sd">        :param cons: Buffer of conservative variables.</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :return: Buffer with gravitational forces.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">density</span>  <span class="o">=</span> <span class="n">cons</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nhx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nhy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nhz</span><span class="p">]</span>
@@ -185,11 +185,11 @@
         <span class="sd">&quot;&quot;&quot;Computes the heat flux in axis direction.</span>
 
 <span class="sd">        :param temperature: Buffer with temperature.</span>
-<span class="sd">        :type temperature: jnp.DeviceArray</span>
+<span class="sd">        :type temperature: jax.Array</span>
 <span class="sd">        :param axis: Spatial direction along which the heat flux is calculated.</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Heat flux in axis direction.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">temperature_at_xj</span>       <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reconstruct_stencil_ui</span><span class="o">.</span><span class="n">reconstruct_xi</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
         <span class="n">thermal_conductivity</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">material_manager</span><span class="o">.</span><span class="n">get_thermal_conductivity</span><span class="p">(</span><span class="n">temperature_at_xj</span><span class="p">)</span>
@@ -208,13 +208,13 @@
 <span class="sd">        ]</span>
 
 <span class="sd">        :param vels: Buffer of velocities.</span>
-<span class="sd">        :type vels: jnp.DeviceArray</span>
+<span class="sd">        :type vels: jax.Array</span>
 <span class="sd">        :param temperature: Buffer of temperature.</span>
-<span class="sd">        :type temperature: jnp.DeviceArray</span>
+<span class="sd">        :type temperature: jax.Array</span>
 <span class="sd">        :param axis: Axis along which the viscous flux is computed.</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Viscous flux along axis direction.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">temperature_at_cf</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reconstruct_stencil_ui</span><span class="o">.</span><span class="n">reconstruct_xi</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
         <span class="n">dynamic_viscosity</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">material_manager</span><span class="o">.</span><span class="n">get_dynamic_viscosity</span><span class="p">(</span><span class="n">temperature_at_cf</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -238,15 +238,15 @@
 <span class="sd">        tau_axis = [tau_axis0, tau_axis1, tau_axis2]</span>
 
 <span class="sd">        :param vel_grad: Buffer of velocity gradient. Shape is 3 x 3 (x 2) x Nx x Ny x Nz </span>
-<span class="sd">        :type vel_grad: jnp.DeviceArray</span>
+<span class="sd">        :type vel_grad: jax.Array</span>
 <span class="sd">        :param dynamic_viscosity: Buffer of dynamic viscosity.</span>
-<span class="sd">        :type dynamic_viscosity: jnp.DeviceArray</span>
+<span class="sd">        :type dynamic_viscosity: jax.Array</span>
 <span class="sd">        :param bulk_viscosity: Buffer of bulk viscosity.</span>
-<span class="sd">        :type bulk_viscosity: jnp.DeviceArray</span>
+<span class="sd">        :type bulk_viscosity: jax.Array</span>
 <span class="sd">        :param axis: Cell face direction at which viscous stresses are calculated.</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Buffer of viscous stresses.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">mu_1</span> <span class="o">=</span> <span class="n">dynamic_viscosity</span>
         <span class="n">mu_2</span> <span class="o">=</span> <span class="n">bulk_viscosity</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">dynamic_viscosity</span>
@@ -262,13 +262,13 @@
         <span class="sd">&quot;&quot;&quot;Computes the spatial derivative in axis_i direction at the cell face in axis_j direction.</span>
 
 <span class="sd">        :param prime: Buffer of primitive variables.</span>
-<span class="sd">        :type prime: jnp.DeviceArray</span>
+<span class="sd">        :type prime: jax.Array</span>
 <span class="sd">        :param axis_i: Spatiald direction wrt which the derivative is taken.</span>
 <span class="sd">        :type axis_i: int</span>
 <span class="sd">        :param axis_j: Spatial direction along which derivative is evaluated.</span>
 <span class="sd">        :type axis_j: int</span>
 <span class="sd">        :return: Derivative wrt axis_i direction at cell face in axis_j direction.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="k">if</span> <span class="n">axis_i</span> <span class="o">==</span> <span class="n">axis_j</span><span class="p">:</span>

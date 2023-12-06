@@ -184,7 +184,7 @@
 <span class="sd">        :param domain_size_xi: Domain size in xi direction</span>
 <span class="sd">        :type domain_size_xi: List</span>
 <span class="sd">        :return: Cell center coordinates, cell face coordinates and cell sizes in xi direction</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, jax.Array, jax.Array]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cell_sizes_xi</span>   <span class="o">=</span> <span class="p">(</span><span class="n">domain_size_xi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">domain_size_xi</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">nxi</span>
         <span class="n">cell_centers_xi</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">domain_size_xi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">cell_sizes_xi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">domain_size_xi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">cell_sizes_xi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">nxi</span><span class="p">)</span>

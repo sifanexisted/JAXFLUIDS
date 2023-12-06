@@ -239,7 +239,7 @@
         <span class="sd">&quot;&quot;&quot;Writes h5 and (optional) xdmf output.</span>
 
 <span class="sd">        :param buffer_dictionary: Dictionary with flow field buffers</span>
-<span class="sd">        :type buffer_dictionary: Dict[str, Dict[str, Union[jnp.DeviceArray, float]]]</span>
+<span class="sd">        :type buffer_dictionary: Dict[str, Dict[str, Union[jax.Array, float]]]</span>
 <span class="sd">        :param force_output: Flag which forces an output.</span>
 <span class="sd">        :type force_output: bool</span>
 <span class="sd">        :param simulation_finish: Flag that indicates the simulation finish -&gt; </span>
@@ -492,11 +492,11 @@
 <span class="sd">        based on the volume fraction. </span>
 
 <span class="sd">        :param buffer: Data buffer.</span>
-<span class="sd">        :type buffer: jnp.DeviceArray</span>
+<span class="sd">        :type buffer: jax.Array</span>
 <span class="sd">        :param volume_fraction: Buffer of the volume fraction.</span>
-<span class="sd">        :type volume_fraction: jnp.DeviceArray</span>
+<span class="sd">        :type volume_fraction: jax.Array</span>
 <span class="sd">        :return: Combined data buffer of the &#39;real&#39; fluid.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">volume_fraction</span>    <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">volume_fraction</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">volume_fraction</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>       
@@ -508,14 +508,14 @@
         <span class="sd">&quot;&quot;&quot;Compute miscellaneous output fields for h5 output.</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param quantity: String identifier of the quantity to be computed.</span>
 <span class="sd">        :type quantity: str</span>
 <span class="sd">        :param volume_fraction: Buffer of the volume fraction field, </span>
 <span class="sd">            only for two-phase simulations. Otherwise None.</span>
-<span class="sd">        :type volume_fraction: Union[jnp.DeviceArray, None]</span>
+<span class="sd">        :type volume_fraction: Union[jax.Array, None]</span>
 <span class="sd">        :return: Computed phyiscal output quantity.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">levelset_type</span> <span class="o">==</span> <span class="s2">&quot;FLUID-FLUID&quot;</span><span class="p">:</span>
             <span class="n">primes_real</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_real_buffer</span><span class="p">(</span><span class="n">primes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhx__</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhy__</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhz__</span><span class="p">],</span> <span class="n">volume_fraction</span><span class="p">)</span>
@@ -540,9 +540,9 @@
         <span class="sd">&quot;&quot;&quot;Computes the absolute velocity field for h5 output.</span>
 
 <span class="sd">        :param velocity: Buffer of velocities.</span>
-<span class="sd">        :type velocity: jnp.DeviceArray</span>
+<span class="sd">        :type velocity: jax.Array</span>
 <span class="sd">        :return: Buffer of absolute velocity.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">absolute_velocity</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">jnp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">velocity</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">levelset_type</span> <span class="o">==</span> <span class="s2">&quot;FLUID-FLUID&quot;</span><span class="p">:</span>
@@ -556,11 +556,11 @@
         <span class="sd">&quot;&quot;&quot;Computes the Mach number field for h5 output.</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param volume_fraction: Buffer of volume fraction.</span>
-<span class="sd">        :type volume_fraction: Union[jnp.DeviceArray, None]</span>
+<span class="sd">        :type volume_fraction: Union[jax.Array, None]</span>
 <span class="sd">        :return: Buffer of Mach number.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">absolute_velocity</span>   <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">jnp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
         <span class="n">speed_of_sound</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">material_manager</span><span class="o">.</span><span class="n">get_speed_of_sound</span><span class="p">(</span><span class="n">primes</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">primes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -576,9 +576,9 @@
         <span class="sd">&quot;&quot;&quot;Computes numerical schlieren field for h5 output.</span>
 
 <span class="sd">        :param density: Buffer of density.</span>
-<span class="sd">        :type density: jnp.DeviceArray</span>
+<span class="sd">        :type density: jax.Array</span>
 <span class="sd">        :return: Buffer of schlieren.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">schlieren</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
@@ -594,9 +594,9 @@
         <span class="sd">&quot;&quot;&quot;Computes vorticity field for h5 output.</span>
 
 <span class="sd">        :param velocity: Buffer of velocities.</span>
-<span class="sd">        :type velocity: jnp.DeviceArray</span>
+<span class="sd">        :type velocity: jax.Array</span>
 <span class="sd">        :return: Buffer of vorticity.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">levelset_type</span> <span class="o">==</span> <span class="s2">&quot;FLUID-FLUID&quot;</span><span class="p">:</span>
@@ -621,9 +621,9 @@
         <span class="sd">&quot;&quot;&quot;Computes absolute vorticity field for h5 output.</span>
 
 <span class="sd">        :param velocity: Buffer of velocities.</span>
-<span class="sd">        :type velocity: jnp.DeviceArray</span>
+<span class="sd">        :type velocity: jax.Array</span>
 <span class="sd">        :return: Buffer of absolute vorticity.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">absolute_vorticity</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">compute_vorticity</span><span class="p">(</span><span class="n">velocity</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>

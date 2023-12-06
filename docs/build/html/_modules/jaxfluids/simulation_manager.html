@@ -277,7 +277,7 @@
 
 <span class="sd">        :param buffer_dictionary: Dictionary containing the material field buffers,</span>
 <span class="sd">        levelset quantitiy buffers, time control and mass flow forcing parameters</span>
-<span class="sd">        :type buffer_dictionary: Dict[str, Dict[str, Union[jnp.DeviceArray, float]]]</span>
+<span class="sd">        :type buffer_dictionary: Dict[str, Dict[str, Union[jax.Array, float]]]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">buffer_dictionary</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">advance</span><span class="p">(</span><span class="n">buffer_dictionary</span><span class="p">)</span></div>
@@ -443,17 +443,17 @@
 <span class="sd">        10) Fill material boundaries</span>
 
 <span class="sd">        :param cons: Buffer of conservative variables</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :param primes: Buffer of primitive variables</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param timestep_size: Current physical time step size</span>
 <span class="sd">        :type timestep_size: float</span>
 <span class="sd">        :param current_time: Current physical simulation time</span>
 <span class="sd">        :type current_time: float</span>
 <span class="sd">        :param levelset: Levelset buffer, defaults to None</span>
-<span class="sd">        :type levelset: Union[jnp.DeviceArray, None], optional</span>
+<span class="sd">        :type levelset: Union[jax.Array, None], optional</span>
 <span class="sd">        :param volume_fraction: Volume fraction buffer, defaults to None</span>
-<span class="sd">        :type volume_fraction: Union[jnp.DeviceArray, None], optional</span>
+<span class="sd">        :type volume_fraction: Union[jax.Array, None], optional</span>
 <span class="sd">        :param apertures: Aperture buffers, defaults to None</span>
 <span class="sd">        :type apertures: Union[List, None], optional</span>
 <span class="sd">        :param reinitialize: Flag indicating whether to reinitialize levelset in the present time step, defaults to False</span>
@@ -545,11 +545,11 @@
         <span class="sd">&quot;&quot;&quot;Computes the physical time step size depending on the active physics.</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param levelset: Levelset buffer</span>
-<span class="sd">        :type levelset: jnp.DeviceArray</span>
+<span class="sd">        :type levelset: jax.Array</span>
 <span class="sd">        :param volume_fraction: Volume fraction buffer</span>
-<span class="sd">        :type volume_fraction: jnp.DeviceArray</span>
+<span class="sd">        :type volume_fraction: jax.Array</span>
 <span class="sd">        :return: Time step size</span>
 <span class="sd">        :rtype: float</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -605,9 +605,9 @@
 <span class="sd">        must therefore be used to end-to-end optimize ML models within the JAX-FLUIDS simulator.</span>
 
 <span class="sd">        :param primes_init: Initial primitive variables buffer</span>
-<span class="sd">        :type primes_init: jnp.DeviceArray</span>
+<span class="sd">        :type primes_init: jax.Array</span>
 <span class="sd">        :param levelset_init: Initial levelset buffer</span>
-<span class="sd">        :type levelset_init: jnp.DeviceArray</span>
+<span class="sd">        :type levelset_init: jax.Array</span>
 <span class="sd">        :param n_steps: Number of time steps</span>
 <span class="sd">        :type n_steps: int</span>
 <span class="sd">        :param timestep_size: Physical time step size</span>
@@ -621,7 +621,7 @@
 <span class="sd">        :param ml_networks_dict: _description_, defaults to None</span>
 <span class="sd">        :type ml_networks_dict: Union[Dict, None], optional</span>
 <span class="sd">        :return: _description_</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># CREATE BUFFER</span>
         <span class="n">nh</span>               <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain_information</span><span class="o">.</span><span class="n">nh_conservatives</span>
@@ -716,9 +716,9 @@
         <span class="sd">&quot;&quot;&quot;Vectorized version of the _feed_forward() method.</span>
 
 <span class="sd">        :param batch_primes_init: batch of initial primitive variable buffers</span>
-<span class="sd">        :type batch_primes_init: jnp.DeviceArray</span>
+<span class="sd">        :type batch_primes_init: jax.Array</span>
 <span class="sd">        :param batch_levelset_init: batch of initial levelset buffers</span>
-<span class="sd">        :type batch_levelset_init: jnp.DeviceArray</span>
+<span class="sd">        :type batch_levelset_init: jax.Array</span>
 <span class="sd">        :param n_steps: Number of integration steps</span>
 <span class="sd">        :type n_steps: int</span>
 <span class="sd">        :param timestep: Physical time step size</span>
@@ -732,7 +732,7 @@
 <span class="sd">        :param ml_networks_dict: NN architectures, defaults to None</span>
 <span class="sd">        :type ml_networks_dict: Union[Dict, None], optional</span>
 <span class="sd">        :return: _description_</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_feed_forward</span><span class="p">,</span> <span class="n">in_axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span> <span class="n">out_axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,))(</span>

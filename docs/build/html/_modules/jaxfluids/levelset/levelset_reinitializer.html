@@ -153,17 +153,17 @@
         <span class="sd">&quot;&quot;&quot;Reinitializes the levelset buffer.</span>
 
 <span class="sd">        :param levelset: Levelset buffer</span>
-<span class="sd">        :type levelset: jnp.DeviceArray</span>
+<span class="sd">        :type levelset: jax.Array</span>
 <span class="sd">        :param mask_reinitialize: Mask indicating which cells to reinitialize</span>
-<span class="sd">        :type mask_reinitialize: jnp.DeviceArray</span>
+<span class="sd">        :type mask_reinitialize: jax.Array</span>
 <span class="sd">        :param mask_residual: Mask indicating where to compute the maximum residual of the reinitialization equation </span>
-<span class="sd">        :type mask_residual: jnp.DeviceArray</span>
+<span class="sd">        :type mask_residual: jax.Array</span>
 <span class="sd">        :param CFL: CFL number</span>
 <span class="sd">        :type CFL: float</span>
 <span class="sd">        :param steps: Number of integration steps</span>
 <span class="sd">        :type steps: int</span>
 <span class="sd">        :return: Reinitialized levelset buffer and maximum residual of the reinitialization equation </span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, float]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, float]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">levelset_0</span>      <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">levelset</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">timestep_size</span>   <span class="o">=</span> <span class="n">CFL</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">smallest_cell_size</span>
@@ -178,15 +178,15 @@
         <span class="sd">&quot;&quot;&quot;Performs an integration step of the levelset reinitialization equation.</span>
 
 <span class="sd">        :param levelset: Levelset buffer</span>
-<span class="sd">        :type levelset: jnp.DeviceArray</span>
+<span class="sd">        :type levelset: jax.Array</span>
 <span class="sd">        :param levelset_0: Levelset buffer at fictitious time = 0.0</span>
-<span class="sd">        :type levelset_0: jnp.DeviceArray</span>
+<span class="sd">        :type levelset_0: jax.Array</span>
 <span class="sd">        :param mask: Mask for right-hand-side</span>
-<span class="sd">        :type mask: jnp.DeviceArray</span>
+<span class="sd">        :type mask: jax.Array</span>
 <span class="sd">        :param timestep_size: Timestep size</span>
 <span class="sd">        :type timestep_size: float</span>
 <span class="sd">        :return: Tuple containing integrated levelset buffer and signed distance residual</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># FILL INIT</span>
@@ -211,13 +211,13 @@
         <span class="sd">&quot;&quot;&quot;Computes the right-hand-side of the levelset reinitialization equation.</span>
 
 <span class="sd">        :param levelset: Levelset buffer</span>
-<span class="sd">        :type levelset: jnp.DeviceArray</span>
+<span class="sd">        :type levelset: jax.Array</span>
 <span class="sd">        :param levelset_0: Levelset buffer at fictitious time = 0.0</span>
-<span class="sd">        :type levelset_0: jnp.DeviceArray</span>
+<span class="sd">        :type levelset_0: jax.Array</span>
 <span class="sd">        :param mask: Mask for right-hand-side</span>
-<span class="sd">        :type mask: jnp.DeviceArray</span>
+<span class="sd">        :type mask: jax.Array</span>
 <span class="sd">        :return: Tuple of right-hand-side and signed distance residual</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># TODO STENCILS IN __INIT__ FOR MASK CUT CELL AND DISTANCE</span>

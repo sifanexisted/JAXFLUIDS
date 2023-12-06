@@ -182,11 +182,11 @@
 <span class="sd">        c = c(p, rho)</span>
 
 <span class="sd">        :param p: Pressure buffer</span>
-<span class="sd">        :type p: jnp.DeviceArray</span>
+<span class="sd">        :type p: jax.Array</span>
 <span class="sd">        :param rho: Density buffer</span>
-<span class="sd">        :type rho: jnp.DeviceArray</span>
+<span class="sd">        :type rho: jax.Array</span>
 <span class="sd">        :return: Speed of sound buffer</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
@@ -196,11 +196,11 @@
 <span class="sd">        p = p(e, rho)</span>
 
 <span class="sd">        :param e: Specific internal energy buffer</span>
-<span class="sd">        :type e: jnp.DeviceArray</span>
+<span class="sd">        :type e: jax.Array</span>
 <span class="sd">        :param rho: Density buffer</span>
-<span class="sd">        :type rho: jnp.DeviceArray</span>
+<span class="sd">        :type rho: jax.Array</span>
 <span class="sd">        :return: Pressue buffer</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
@@ -210,11 +210,11 @@
 <span class="sd">        T = T(p, rho)</span>
 
 <span class="sd">        :param p: Pressure buffer</span>
-<span class="sd">        :type p: jnp.DeviceArray</span>
+<span class="sd">        :type p: jax.Array</span>
 <span class="sd">        :param rho: Density buffer</span>
-<span class="sd">        :type rho: jnp.DeviceArray</span>
+<span class="sd">        :type rho: jax.Array</span>
 <span class="sd">        :return: Temperature buffer</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
     
@@ -224,11 +224,11 @@
 <span class="sd">        e = e(p, rho)</span>
 
 <span class="sd">        :param p: Pressure buffer</span>
-<span class="sd">        :type p: jnp.DeviceArray</span>
+<span class="sd">        :type p: jax.Array</span>
 <span class="sd">        :param rho: Density buffer</span>
-<span class="sd">        :type rho: jnp.DeviceArray</span>
+<span class="sd">        :type rho: jax.Array</span>
 <span class="sd">        :return: Specific internal energy buffer</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
@@ -238,17 +238,17 @@
 <span class="sd">        E = E(p, rho, velX, velY, velZ)</span>
 
 <span class="sd">        :param p: Pressure buffer</span>
-<span class="sd">        :type p: jnp.DeviceArray</span>
+<span class="sd">        :type p: jax.Array</span>
 <span class="sd">        :param rho: Density buffer</span>
-<span class="sd">        :type rho: jnp.DeviceArray</span>
+<span class="sd">        :type rho: jax.Array</span>
 <span class="sd">        :param u: Velocity in x direction</span>
-<span class="sd">        :type u: jnp.DeviceArray</span>
+<span class="sd">        :type u: jax.Array</span>
 <span class="sd">        :param v: Velocity in y direction</span>
-<span class="sd">        :type v: jnp.DeviceArray</span>
+<span class="sd">        :type v: jax.Array</span>
 <span class="sd">        :param w: Velocity in z direction</span>
-<span class="sd">        :type w: jnp.DeviceArray</span>
+<span class="sd">        :type w: jax.Array</span>
 <span class="sd">        :return: Total energy per unit volume</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
@@ -258,17 +258,17 @@
 <span class="sd">        H = H(p, rho, velX, velY, velZ)</span>
 
 <span class="sd">        :param p: Pressure buffer</span>
-<span class="sd">        :type p: jnp.DeviceArray</span>
+<span class="sd">        :type p: jax.Array</span>
 <span class="sd">        :param rho: Density buffer</span>
-<span class="sd">        :type rho: jnp.DeviceArray</span>
+<span class="sd">        :type rho: jax.Array</span>
 <span class="sd">        :param u: Velocity in x direction</span>
-<span class="sd">        :type u: jnp.DeviceArray</span>
+<span class="sd">        :type u: jax.Array</span>
 <span class="sd">        :param v: Velocity in y direction</span>
-<span class="sd">        :type v: jnp.DeviceArray</span>
+<span class="sd">        :type v: jax.Array</span>
 <span class="sd">        :param w: Velocity in z direction</span>
-<span class="sd">        :type w: jnp.DeviceArray</span>
+<span class="sd">        :type w: jax.Array</span>
 <span class="sd">        :return: Total specific enthalpy buffer</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
@@ -278,11 +278,11 @@
 <span class="sd">        psi = p_rho; p_rho is partial derivative of pressure wrt density.</span>
 
 <span class="sd">        :param p: Pressure buffer</span>
-<span class="sd">        :type p: jnp.DeviceArray</span>
+<span class="sd">        :type p: jax.Array</span>
 <span class="sd">        :param rho: Density buffer</span>
-<span class="sd">        :type rho: jnp.DeviceArray</span>
+<span class="sd">        :type rho: jax.Array</span>
 <span class="sd">        :return: Psi</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
@@ -292,9 +292,9 @@
 <span class="sd">        Gamma = p_e / rho; p_e is partial derivative of pressure wrt internal specific energy.</span>
 
 <span class="sd">        :param rho: Density buffer</span>
-<span class="sd">        :type rho: jnp.DeviceArray</span>
+<span class="sd">        :type rho: jax.Array</span>
 <span class="sd">        :return: Grueneisen</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span></div></div>
 </pre></div>
 

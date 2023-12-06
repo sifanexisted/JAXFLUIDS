@@ -233,11 +233,11 @@
         <span class="sd">&quot;&quot;&quot;Computes the Roe averaged conservative state.</span>
 
 <span class="sd">        :param prime_L: Buffer of primitive variables left of a cell face.</span>
-<span class="sd">        :type prime_L: jnp.DeviceArray</span>
+<span class="sd">        :type prime_L: jax.Array</span>
 <span class="sd">        :param prime_R: Buffer of primitive variables right of a cell face.</span>
-<span class="sd">        :type prime_R: jnp.DeviceArray</span>
+<span class="sd">        :type prime_R: jax.Array</span>
 <span class="sd">        :return: Buffer of Roe averaged quantities at the cell face.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">roe_cons</span> <span class="o">=</span> <span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">prime_L</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">prime_L</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">prime_R</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">prime_R</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">prime_L</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">prime_R</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">roe_cons</span></div>
@@ -246,11 +246,11 @@
         <span class="sd">&quot;&quot;&quot;Computes the eigendecomposition of the Jacobian matrix wrt primitive variables.</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param axis: Direction of the cell face at which the eigendecomposition is to be performed.</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Buffer of left and right eigenvectors.</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">_s</span> <span class="o">=</span> <span class="n">primes_ave</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
@@ -316,11 +316,11 @@
 <span class="sd">        Formulation only valid for an ideal gas. Implementation according to Rohde 2001.</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param axis: Direction of the cell face at which the eigendecomposition is to be performed.</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Buffer of left, right eigenvectors and the eigenvalues.</span>
-<span class="sd">        :rtype: Union[Tuple[jnp.DeviceArray, jnp.DeviceArray], Tuple[jnp.DeviceArray, jnp.DeviceArray, jnp.DeviceArray]]</span>
+<span class="sd">        :rtype: Union[Tuple[jax.Array, jax.Array], Tuple[jax.Array, jax.Array, jax.Array]]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">primes_ave</span><span class="p">,</span> <span class="n">enthalpy_ave</span><span class="p">,</span> <span class="n">grueneisen_ave</span><span class="p">,</span> <span class="n">c_ave</span><span class="p">,</span> <span class="n">cc_ave</span><span class="p">,</span> <span class="n">velocity_square</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_frozen_state</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
@@ -422,11 +422,11 @@
 <span class="sd">        Formulation for a general equation of state. Implementation according to Fedkiv et al.</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param axis: Direction of the cell face at which the eigendecomposition is to be performed.</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Buffer of left, right eigenvectors and the eigenvalues.</span>
-<span class="sd">        :rtype: Union[Tuple[jnp.DeviceArray, jnp.DeviceArray], Tuple[jnp.DeviceArray, jnp.DeviceArray, jnp.DeviceArray]]</span>
+<span class="sd">        :rtype: Union[Tuple[jax.Array, jax.Array], Tuple[jax.Array, jax.Array, jax.Array]]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">primes_ave</span><span class="p">,</span> <span class="n">enthalpy_ave</span><span class="p">,</span> <span class="n">grueneisen_ave</span><span class="p">,</span> <span class="n">c_ave</span><span class="p">,</span> <span class="n">cc_ave</span><span class="p">,</span> <span class="n">velocity_square</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_frozen_state</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
@@ -527,13 +527,13 @@
         <span class="sd">&quot;&quot;&quot;Transforms the stencil from physical to characteristic space.</span>
 
 <span class="sd">        :param stencil: Buffer with variables in physical space.</span>
-<span class="sd">        :type stencil: jnp.DeviceArray</span>
+<span class="sd">        :type stencil: jax.Array</span>
 <span class="sd">        :param left_eig: Buffer of left eigenvalues.</span>
-<span class="sd">        :type left_eig: jnp.DeviceArray</span>
+<span class="sd">        :type left_eig: jax.Array</span>
 <span class="sd">        :param axis: Spatial direction along which transformation has to be performed. </span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Buffer with variables in characteristic space.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">left_eig</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">left_eig</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;ij...,j...-&gt;i...&quot;</span><span class="p">,</span> <span class="n">left_eig</span><span class="p">,</span> <span class="n">stencil</span><span class="p">)</span></div>
@@ -542,11 +542,11 @@
         <span class="sd">&quot;&quot;&quot;Transforms the stencil from characteristic to physical space.</span>
 
 <span class="sd">        :param stencil: Buffer with variables in characteristic space.</span>
-<span class="sd">        :type stencil: jnp.DeviceArray</span>
+<span class="sd">        :type stencil: jax.Array</span>
 <span class="sd">        :param right_eig: Buffer of right eigenvalues.</span>
-<span class="sd">        :type right_eig: jnp.DeviceArray</span>
+<span class="sd">        :type right_eig: jax.Array</span>
 <span class="sd">        :return: Buffer with variables in physical space.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;ij...,j...-&gt;i...&quot;</span><span class="p">,</span> <span class="n">right_eig</span><span class="p">,</span> <span class="n">stencil</span><span class="p">)</span></div></div>
 </pre></div>

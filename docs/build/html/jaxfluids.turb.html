@@ -411,13 +411,13 @@ field as well as cumulative statistics over the course of a simulation.</p>
 dilatation = du1/dx1 + du2/dx2 + du3/dx3</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>velocity</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocities in physical space.</p>
+<dd class="field-odd"><p><strong>velocity</strong> (<em>jax.Array</em>) – Buffer of velocities in physical space.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of dilatational field.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -428,13 +428,13 @@ dilatation = du1/dx1 + du2/dx2 + du3/dx3</p>
 <dd><p>Calculates the dilatation of the given velocity field in spectral space.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>velocity_hat</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocities in spectral space.</p>
+<dd class="field-odd"><p><strong>velocity_hat</strong> (<em>jax.Array</em>) – Buffer of velocities in spectral space.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of the dilatational field.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -453,13 +453,13 @@ du3/dx1 du3/dx2 du3/dx3</p>
 <p>]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>velocity</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocities in physical space.</p>
+<dd class="field-odd"><p><strong>velocity</strong> (<em>jax.Array</em>) – Buffer of velocities in physical space.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of the shear tensor.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -471,13 +471,13 @@ du3/dx1 du3/dx2 du3/dx3</p>
 <p>dui/dxj = IFFT ( 1j * k_j * u_i_hat  )</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>velocity_hat</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocities in spectral space.</p>
+<dd class="field-odd"><p><strong>velocity_hat</strong> (<em>jax.Array</em>) – Buffer of velocities in spectral space.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of the shear tensor.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -488,13 +488,13 @@ du3/dx1 du3/dx2 du3/dx3</p>
 <dd><p>Calculates the strain given the velocity gradient tensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>duidj</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocity gradient.</p>
+<dd class="field-odd"><p><strong>duidj</strong> (<em>jax.Array</em>) – Buffer of velocity gradient.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of strain tensor.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -511,13 +511,13 @@ du2/dx1 - du1/dx2]</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>velocity</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocities in physical space.</p>
+<dd class="field-odd"><p><strong>velocity</strong> (<em>jax.Array</em>) – Buffer of velocities in physical space.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Vorticity vector in physical space.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -530,13 +530,13 @@ spectral space.</p>
 <p>omega = (du3/dx2 - du2/dx3, du1/dx3 - du3/dx1, du2/dx1 - du1/dx2)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>velocity_hat</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocities in spectral space.</p>
+<dd class="field-odd"><p><strong>velocity_hat</strong> (<em>jax.Array</em>) – Buffer of velocities in spectral space.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Vorticity vector in physical space.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -548,13 +548,13 @@ spectral space.</p>
 Wrapper around self.energy_spectrum_spectral</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>velocity</strong> (<em>jnp.DeviceArray</em>) – Velocity vector in physical space.</p>
+<dd class="field-odd"><p><strong>velocity</strong> (<em>jax.Array</em>) – Velocity vector in physical space.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Spectral energy spectrum.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -565,13 +565,13 @@ Wrapper around self.energy_spectrum_spectral</p>
 <dd><p>Calculates the three-dimensional spectral energy spectrum of the input velocity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>velocity_hat</strong> (<em>jnp.DeviceArray</em>) – Velocity vector in spectral space.</p>
+<dd class="field-odd"><p><strong>velocity_hat</strong> (<em>jax.Array</em>) – Velocity vector in spectral space.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Spectral energy spectrum.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -582,7 +582,7 @@ Wrapper around self.energy_spectrum_spectral</p>
 <dd><p>Computes the turbulent statistics for the given primitive buffer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p>
+<dd class="field-odd"><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Dictionary with turbulent statistics.</p>
@@ -599,7 +599,7 @@ Wrapper around self.energy_spectrum_spectral</p>
 <dd><p>Calculates statistics for homogeneous isotropic turbulence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p>
+<dd class="field-odd"><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Dictionary with information on the HIT statistics.</p>

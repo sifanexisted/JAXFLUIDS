@@ -296,13 +296,13 @@ into Paraview.</p>
 <dd><p>Computes the absolute velocity field for h5 output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>velocity</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocities.</p>
+<dd class="field-odd"><p><strong>velocity</strong> (<em>jax.Array</em>) – Buffer of velocities.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of absolute velocity.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -313,13 +313,13 @@ into Paraview.</p>
 <dd><p>Computes absolute vorticity field for h5 output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>velocity</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocities.</p>
+<dd class="field-odd"><p><strong>velocity</strong> (<em>jax.Array</em>) – Buffer of velocities.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of absolute vorticity.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -331,15 +331,15 @@ into Paraview.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p></li>
-<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><em>None</em><em>]</em>) – Buffer of volume fraction.</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p></li>
+<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><em>None</em><em>]</em>) – Buffer of volume fraction.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of Mach number.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -351,9 +351,9 @@ into Paraview.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p></li>
 <li><p><strong>quantity</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – String identifier of the quantity to be computed.</p></li>
-<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><em>None</em><em>]</em>) – Buffer of the volume fraction field,
+<li><p><strong>volume_fraction</strong> (<em>Union</em><em>[</em><em>jax.Array</em><em>, </em><em>None</em><em>]</em>) – Buffer of the volume fraction field,
 only for two-phase simulations. Otherwise None.</p></li>
 </ul>
 </dd>
@@ -361,7 +361,7 @@ only for two-phase simulations. Otherwise None.</p></li>
 <dd class="field-even"><p>Computed phyiscal output quantity.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -375,15 +375,15 @@ based on the volume fraction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>buffer</strong> (<em>jnp.DeviceArray</em>) – Data buffer.</p></li>
-<li><p><strong>volume_fraction</strong> (<em>jnp.DeviceArray</em>) – Buffer of the volume fraction.</p></li>
+<li><p><strong>buffer</strong> (<em>jax.Array</em>) – Data buffer.</p></li>
+<li><p><strong>volume_fraction</strong> (<em>jax.Array</em>) – Buffer of the volume fraction.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Combined data buffer of the ‘real’ fluid.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -394,13 +394,13 @@ based on the volume fraction.</p>
 <dd><p>Computes numerical schlieren field for h5 output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>density</strong> (<em>jnp.DeviceArray</em>) – Buffer of density.</p>
+<dd class="field-odd"><p><strong>density</strong> (<em>jax.Array</em>) – Buffer of density.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of schlieren.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -411,13 +411,13 @@ based on the volume fraction.</p>
 <dd><p>Computes vorticity field for h5 output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>velocity</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocities.</p>
+<dd class="field-odd"><p><strong>velocity</strong> (<em>jax.Array</em>) – Buffer of velocities.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of vorticity.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -485,7 +485,7 @@ simulation folder.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>buffer_dictionary</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Union</em><em>[</em><em>jnp.DeviceArray</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em><em>]</em><em>]</em>) – Dictionary with flow field buffers</p></li>
+<li><p><strong>buffer_dictionary</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Union</em><em>[</em><em>jax.Array</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em><em>]</em><em>]</em>) – Dictionary with flow field buffers</p></li>
 <li><p><strong>force_output</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Flag which forces an output.</p></li>
 <li><p><strong>simulation_finish</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em>, </em><em>optional</em>) – Flag that indicates the simulation finish -&gt;
 then timeseries xdmf is written, defaults to False</p></li>

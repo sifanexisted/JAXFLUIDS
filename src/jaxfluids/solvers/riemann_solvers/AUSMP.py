@@ -50,8 +50,8 @@ class AUSMP(RiemannSolver):
         self.alpha = 3.0 / 16.0
         self.beta  = 1.0 / 8.0
 
-    def solve_riemann_problem_xi(self, primes_L: jnp.DeviceArray, primes_R: jnp.DeviceArray, 
-        cons_L: jnp.DeviceArray, cons_R: jnp.DeviceArray, axis: int, **kwargs) -> jnp.DeviceArray:
+    def solve_riemann_problem_xi(self, primes_L: jax.Array, primes_R: jax.Array, 
+        cons_L: jax.Array, cons_R: jax.Array, axis: int, **kwargs) -> jax.Array:
         phi_left  = self.get_phi(primes_L, cons_L)
         phi_right = self.get_phi(primes_R, cons_R)
 
@@ -96,17 +96,17 @@ class AUSMP(RiemannSolver):
 
         return fluxes_xi
 
-    def get_phi(self, primes: jnp.DeviceArray, cons: jnp.DeviceArray) -> jnp.DeviceArray:
+    def get_phi(self, primes: jax.Array, cons: jax.Array) -> jax.Array:
         """Computes the phi vector from primitive and conservative variables
         in which energy is replaced by enthalpy.
         phi = [rho, rho * velX, rho * velY, rho * velZ, H]
 
         :param primes: Buffer of primitive variables.
-        :type primes: jnp.DeviceArray
+        :type primes: jax.Array
         :param cons: Buffer of conservative variables.
-        :type cons: jnp.DeviceArray
+        :type cons: jax.Array
         :return: Buffer of phi variable.
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         rho =  cons[0] 
         rhou = cons[1] 

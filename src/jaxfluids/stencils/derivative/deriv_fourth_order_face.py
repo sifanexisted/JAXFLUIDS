@@ -64,7 +64,7 @@ class DerivativeFourthOrderFace(SpatialDerivative):
                 jnp.s_[..., self.nhx, self.nhy, jnp.s_[self.n+1:-self.n+2] if self.n != 2 else jnp.s_[self.n+1:None]]  ]   
         ]
 
-    def derivative_xi(self, primes: jnp.DeviceArray, dxi: jnp.DeviceArray, axis: int) -> jnp.DeviceArray:
+    def derivative_xi(self, primes: jax.Array, dxi: jax.Array, axis: int) -> jax.Array:
         s1_ = self.s_[axis]
         deriv_xi = (1.0 / 24.0 / dxi) * (primes[s1_[0]] - 27.0 * primes[s1_[1]] + 27.0 * primes[s1_[2]] - primes[s1_[3]])
         return deriv_xi

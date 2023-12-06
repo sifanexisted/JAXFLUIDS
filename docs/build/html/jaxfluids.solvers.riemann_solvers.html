@@ -169,15 +169,15 @@ phi = [rho, rho * velX, rho * velY, rho * velZ, H]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p></li>
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of conservative variables.</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of conservative variables.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of phi variable.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -190,10 +190,10 @@ by the axis argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes_L</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer left of cell face</p></li>
-<li><p><strong>primes_R</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer right of cell face</p></li>
-<li><p><strong>cons_L</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer left of cell face</p></li>
-<li><p><strong>cons_R</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer right of cell face</p></li>
+<li><p><strong>primes_L</strong> (<em>jax.Array</em>) – primtive variable buffer left of cell face</p></li>
+<li><p><strong>primes_R</strong> (<em>jax.Array</em>) – primtive variable buffer right of cell face</p></li>
+<li><p><strong>cons_L</strong> (<em>jax.Array</em>) – conservative variable buffer left of cell face</p></li>
+<li><p><strong>cons_R</strong> (<em>jax.Array</em>) – conservative variable buffer right of cell face</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which Riemann problem is solved.</p></li>
 </ul>
 </dd>
@@ -201,7 +201,7 @@ by the axis argument.</p>
 <dd class="field-even"><p>buffer of fluxes in xi direction</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -225,10 +225,10 @@ by the axis argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes_L</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer left of cell face</p></li>
-<li><p><strong>primes_R</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer right of cell face</p></li>
-<li><p><strong>cons_L</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer left of cell face</p></li>
-<li><p><strong>cons_R</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer right of cell face</p></li>
+<li><p><strong>primes_L</strong> (<em>jax.Array</em>) – primtive variable buffer left of cell face</p></li>
+<li><p><strong>primes_R</strong> (<em>jax.Array</em>) – primtive variable buffer right of cell face</p></li>
+<li><p><strong>cons_L</strong> (<em>jax.Array</em>) – conservative variable buffer left of cell face</p></li>
+<li><p><strong>cons_R</strong> (<em>jax.Array</em>) – conservative variable buffer right of cell face</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which Riemann problem is solved.</p></li>
 </ul>
 </dd>
@@ -236,7 +236,7 @@ by the axis argument.</p>
 <dd class="field-even"><p>buffer of fluxes in xi direction</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -260,10 +260,10 @@ by the axis argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes_L</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer left of cell face</p></li>
-<li><p><strong>primes_R</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer right of cell face</p></li>
-<li><p><strong>cons_L</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer left of cell face</p></li>
-<li><p><strong>cons_R</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer right of cell face</p></li>
+<li><p><strong>primes_L</strong> (<em>jax.Array</em>) – primtive variable buffer left of cell face</p></li>
+<li><p><strong>primes_R</strong> (<em>jax.Array</em>) – primtive variable buffer right of cell face</p></li>
+<li><p><strong>cons_L</strong> (<em>jax.Array</em>) – conservative variable buffer left of cell face</p></li>
+<li><p><strong>cons_R</strong> (<em>jax.Array</em>) – conservative variable buffer right of cell face</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which Riemann problem is solved.</p></li>
 </ul>
 </dd>
@@ -271,7 +271,7 @@ by the axis argument.</p>
 <dd class="field-even"><p>buffer of fluxes in xi direction</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -295,10 +295,10 @@ by the axis argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes_L</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer left of cell face</p></li>
-<li><p><strong>primes_R</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer right of cell face</p></li>
-<li><p><strong>cons_L</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer left of cell face</p></li>
-<li><p><strong>cons_R</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer right of cell face</p></li>
+<li><p><strong>primes_L</strong> (<em>jax.Array</em>) – primtive variable buffer left of cell face</p></li>
+<li><p><strong>primes_R</strong> (<em>jax.Array</em>) – primtive variable buffer right of cell face</p></li>
+<li><p><strong>cons_L</strong> (<em>jax.Array</em>) – conservative variable buffer left of cell face</p></li>
+<li><p><strong>cons_R</strong> (<em>jax.Array</em>) – conservative variable buffer right of cell face</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which Riemann problem is solved.</p></li>
 </ul>
 </dd>
@@ -306,7 +306,7 @@ by the axis argument.</p>
 <dd class="field-even"><p>buffer of fluxes in xi direction</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -331,10 +331,10 @@ by the axis argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes_L</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer left of cell face</p></li>
-<li><p><strong>primes_R</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer right of cell face</p></li>
-<li><p><strong>cons_L</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer left of cell face</p></li>
-<li><p><strong>cons_R</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer right of cell face</p></li>
+<li><p><strong>primes_L</strong> (<em>jax.Array</em>) – primtive variable buffer left of cell face</p></li>
+<li><p><strong>primes_R</strong> (<em>jax.Array</em>) – primtive variable buffer right of cell face</p></li>
+<li><p><strong>cons_L</strong> (<em>jax.Array</em>) – conservative variable buffer left of cell face</p></li>
+<li><p><strong>cons_R</strong> (<em>jax.Array</em>) – conservative variable buffer right of cell face</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which Riemann problem is solved.</p></li>
 </ul>
 </dd>
@@ -342,7 +342,7 @@ by the axis argument.</p>
 <dd class="field-even"><p>buffer of fluxes in xi direction</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -365,10 +365,10 @@ by the axis argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes_L</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer left of cell face</p></li>
-<li><p><strong>primes_R</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer right of cell face</p></li>
-<li><p><strong>cons_L</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer left of cell face</p></li>
-<li><p><strong>cons_R</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer right of cell face</p></li>
+<li><p><strong>primes_L</strong> (<em>jax.Array</em>) – primtive variable buffer left of cell face</p></li>
+<li><p><strong>primes_R</strong> (<em>jax.Array</em>) – primtive variable buffer right of cell face</p></li>
+<li><p><strong>cons_L</strong> (<em>jax.Array</em>) – conservative variable buffer left of cell face</p></li>
+<li><p><strong>cons_R</strong> (<em>jax.Array</em>) – conservative variable buffer right of cell face</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which Riemann problem is solved.</p></li>
 </ul>
 </dd>
@@ -376,7 +376,7 @@ by the axis argument.</p>
 <dd class="field-even"><p>buffer of fluxes in xi direction</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -401,10 +401,10 @@ by the axis argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes_L</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer left of cell face</p></li>
-<li><p><strong>primes_R</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer right of cell face</p></li>
-<li><p><strong>cons_L</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer left of cell face</p></li>
-<li><p><strong>cons_R</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer right of cell face</p></li>
+<li><p><strong>primes_L</strong> (<em>jax.Array</em>) – primtive variable buffer left of cell face</p></li>
+<li><p><strong>primes_R</strong> (<em>jax.Array</em>) – primtive variable buffer right of cell face</p></li>
+<li><p><strong>cons_L</strong> (<em>jax.Array</em>) – conservative variable buffer left of cell face</p></li>
+<li><p><strong>cons_R</strong> (<em>jax.Array</em>) – conservative variable buffer right of cell face</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which Riemann problem is solved.</p></li>
 </ul>
 </dd>
@@ -412,7 +412,7 @@ by the axis argument.</p>
 <dd class="field-even"><p>buffer of fluxes in xi direction</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -445,15 +445,15 @@ to a user-specified flux-splitting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prime_L</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables left of a cell face.</p></li>
-<li><p><strong>prime_R</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables right of a cell face.</p></li>
+<li><p><strong>prime_L</strong> (<em>jax.Array</em>) – Buffer of primitive variables left of a cell face.</p></li>
+<li><p><strong>prime_R</strong> (<em>jax.Array</em>) – Buffer of primitive variables right of a cell face.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer of Roe averaged quantities at the cell face.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -466,7 +466,7 @@ Formulation for a general equation of state. Implementation according to Fedkiv 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Direction of the cell face at which the eigendecomposition is to be performed.</p></li>
 </ul>
 </dd>
@@ -474,7 +474,7 @@ Formulation for a general equation of state. Implementation according to Fedkiv 
 <dd class="field-even"><p>Buffer of left, right eigenvectors and the eigenvalues.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Union[Tuple[jnp.DeviceArray, jnp.DeviceArray], Tuple[jnp.DeviceArray, jnp.DeviceArray, jnp.DeviceArray]]</p>
+<dd class="field-odd"><p>Union[Tuple[jax.Array, jax.Array], Tuple[jax.Array, jax.Array, jax.Array]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -486,7 +486,7 @@ Formulation for a general equation of state. Implementation according to Fedkiv 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Direction of the cell face at which the eigendecomposition is to be performed.</p></li>
 </ul>
 </dd>
@@ -494,7 +494,7 @@ Formulation for a general equation of state. Implementation according to Fedkiv 
 <dd class="field-even"><p>Buffer of left and right eigenvectors.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -516,8 +516,8 @@ Formulation for a general equation of state. Implementation according to Fedkiv 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>stencil</strong> (<em>jnp.DeviceArray</em>) – Buffer with variables in physical space.</p></li>
-<li><p><strong>left_eig</strong> (<em>jnp.DeviceArray</em>) – Buffer of left eigenvalues.</p></li>
+<li><p><strong>stencil</strong> (<em>jax.Array</em>) – Buffer with variables in physical space.</p></li>
+<li><p><strong>left_eig</strong> (<em>jax.Array</em>) – Buffer of left eigenvalues.</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which transformation has to be performed.</p></li>
 </ul>
 </dd>
@@ -525,7 +525,7 @@ Formulation for a general equation of state. Implementation according to Fedkiv 
 <dd class="field-even"><p>Buffer with variables in characteristic space.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -537,15 +537,15 @@ Formulation for a general equation of state. Implementation according to Fedkiv 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>stencil</strong> (<em>jnp.DeviceArray</em>) – Buffer with variables in characteristic space.</p></li>
-<li><p><strong>right_eig</strong> (<em>jnp.DeviceArray</em>) – Buffer of right eigenvalues.</p></li>
+<li><p><strong>stencil</strong> (<em>jax.Array</em>) – Buffer with variables in characteristic space.</p></li>
+<li><p><strong>right_eig</strong> (<em>jax.Array</em>) – Buffer of right eigenvalues.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer with variables in physical space.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -575,10 +575,10 @@ by the axis argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes_L</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer left of cell face</p></li>
-<li><p><strong>primes_R</strong> (<em>jnp.DeviceArray</em>) – primtive variable buffer right of cell face</p></li>
-<li><p><strong>cons_L</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer left of cell face</p></li>
-<li><p><strong>cons_R</strong> (<em>jnp.DeviceArray</em>) – conservative variable buffer right of cell face</p></li>
+<li><p><strong>primes_L</strong> (<em>jax.Array</em>) – primtive variable buffer left of cell face</p></li>
+<li><p><strong>primes_R</strong> (<em>jax.Array</em>) – primtive variable buffer right of cell face</p></li>
+<li><p><strong>cons_L</strong> (<em>jax.Array</em>) – conservative variable buffer left of cell face</p></li>
+<li><p><strong>cons_R</strong> (<em>jax.Array</em>) – conservative variable buffer right of cell face</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which Riemann problem is solved.</p></li>
 </ul>
 </dd>
@@ -586,7 +586,7 @@ by the axis argument.</p>
 <dd class="field-even"><p>buffer of fluxes in xi direction</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -604,21 +604,21 @@ by the axis argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>u_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
-<li><p><strong>u_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
-<li><p><strong>p_L</strong> (<em>jnp.DeviceArray</em>) – Pressure of left neighboring cell.</p></li>
-<li><p><strong>p_R</strong> (<em>jnp.DeviceArray</em>) – Pressure of right neighboring cells.</p></li>
-<li><p><strong>rho_L</strong> (<em>jnp.DeviceArray</em>) – Density of left neighboring cell.</p></li>
-<li><p><strong>rho_R</strong> (<em>jnp.DeviceArray</em>) – Density of right neighboring cell.</p></li>
-<li><p><strong>S_L</strong> (<em>jnp.DeviceArray</em>) – Wave speed estimate left-going wave.</p></li>
-<li><p><strong>S_R</strong> (<em>jnp.DeviceArray</em>) – Wave speed estimate right-going wave.</p></li>
+<li><p><strong>u_L</strong> (<em>jax.Array</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
+<li><p><strong>u_R</strong> (<em>jax.Array</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
+<li><p><strong>p_L</strong> (<em>jax.Array</em>) – Pressure of left neighboring cell.</p></li>
+<li><p><strong>p_R</strong> (<em>jax.Array</em>) – Pressure of right neighboring cells.</p></li>
+<li><p><strong>rho_L</strong> (<em>jax.Array</em>) – Density of left neighboring cell.</p></li>
+<li><p><strong>rho_R</strong> (<em>jax.Array</em>) – Density of right neighboring cell.</p></li>
+<li><p><strong>S_L</strong> (<em>jax.Array</em>) – Wave speed estimate left-going wave.</p></li>
+<li><p><strong>S_R</strong> (<em>jax.Array</em>) – Wave speed estimate right-going wave.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Speed of the intermediate wave in the Riemann problem.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -632,21 +632,21 @@ linearised solution in terms of primitive variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>u_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
-<li><p><strong>u_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
-<li><p><strong>a_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
-<li><p><strong>a_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
-<li><p><strong>rho_L</strong> (<em>jnp.DeviceArray</em>) – Densities of left neighboring cells.</p></li>
-<li><p><strong>rho_R</strong> (<em>jnp.DeviceArray</em>) – Densities of right neighboring cells.</p></li>
-<li><p><strong>p_L</strong> (<em>jnp.DeviceArray</em>) – Pressure of left neighboring cell.</p></li>
-<li><p><strong>p_R</strong> (<em>jnp.DeviceArray</em>) – Pressure of right neighboring cells.</p></li>
+<li><p><strong>u_L</strong> (<em>jax.Array</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
+<li><p><strong>u_R</strong> (<em>jax.Array</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
+<li><p><strong>a_L</strong> (<em>jax.Array</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
+<li><p><strong>a_R</strong> (<em>jax.Array</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
+<li><p><strong>rho_L</strong> (<em>jax.Array</em>) – Densities of left neighboring cells.</p></li>
+<li><p><strong>rho_R</strong> (<em>jax.Array</em>) – Densities of right neighboring cells.</p></li>
+<li><p><strong>p_L</strong> (<em>jax.Array</em>) – Pressure of left neighboring cell.</p></li>
+<li><p><strong>p_R</strong> (<em>jax.Array</em>) – Pressure of right neighboring cells.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Pressure in the star region.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -658,17 +658,17 @@ linearised solution in terms of primitive variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>u_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
-<li><p><strong>u_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
-<li><p><strong>a_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
-<li><p><strong>a_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
+<li><p><strong>u_L</strong> (<em>jax.Array</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
+<li><p><strong>u_R</strong> (<em>jax.Array</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
+<li><p><strong>a_L</strong> (<em>jax.Array</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
+<li><p><strong>a_R</strong> (<em>jax.Array</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffers of left and right going wave speed estimates.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -681,17 +681,17 @@ See Toro Eq. (10.48)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>u_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
-<li><p><strong>u_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
-<li><p><strong>a_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
-<li><p><strong>a_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
+<li><p><strong>u_L</strong> (<em>jax.Array</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
+<li><p><strong>u_R</strong> (<em>jax.Array</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
+<li><p><strong>a_L</strong> (<em>jax.Array</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
+<li><p><strong>a_R</strong> (<em>jax.Array</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffers of left and right going wave speed estimates.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -703,14 +703,14 @@ See Toro Eq. (10.48)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>u_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
-<li><p><strong>u_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
-<li><p><strong>a_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
-<li><p><strong>a_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
-<li><p><strong>rho_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with densitites in left neighboring cell.</p></li>
-<li><p><strong>rho_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with densitites in right neighboring cell.</p></li>
-<li><p><strong>H_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with total enthalpies in left neighboring cell.</p></li>
-<li><p><strong>H_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with enthalpies in right neighboring cell.</p></li>
+<li><p><strong>u_L</strong> (<em>jax.Array</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
+<li><p><strong>u_R</strong> (<em>jax.Array</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
+<li><p><strong>a_L</strong> (<em>jax.Array</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
+<li><p><strong>a_R</strong> (<em>jax.Array</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
+<li><p><strong>rho_L</strong> (<em>jax.Array</em>) – Buffer with densitites in left neighboring cell.</p></li>
+<li><p><strong>rho_R</strong> (<em>jax.Array</em>) – Buffer with densitites in right neighboring cell.</p></li>
+<li><p><strong>H_L</strong> (<em>jax.Array</em>) – Buffer with total enthalpies in left neighboring cell.</p></li>
+<li><p><strong>H_R</strong> (<em>jax.Array</em>) – Buffer with enthalpies in right neighboring cell.</p></li>
 <li><p><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Ratio of specific heats.</p></li>
 </ul>
 </dd>
@@ -718,7 +718,7 @@ See Toro Eq. (10.48)</p>
 <dd class="field-even"><p>Buffers of left and right going wave speed estimates.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -731,17 +731,17 @@ See Toro Eqs. (10.52) - (10.54)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>u_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
-<li><p><strong>u_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
-<li><p><strong>a_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
-<li><p><strong>a_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
+<li><p><strong>u_L</strong> (<em>jax.Array</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
+<li><p><strong>u_R</strong> (<em>jax.Array</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
+<li><p><strong>a_L</strong> (<em>jax.Array</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
+<li><p><strong>a_R</strong> (<em>jax.Array</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffers of left and right going wave speed estimates.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -753,17 +753,17 @@ See Toro Eqs. (10.52) - (10.54)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>u_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
-<li><p><strong>u_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
-<li><p><strong>a_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
-<li><p><strong>a_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
+<li><p><strong>u_L</strong> (<em>jax.Array</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
+<li><p><strong>u_R</strong> (<em>jax.Array</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
+<li><p><strong>a_L</strong> (<em>jax.Array</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
+<li><p><strong>a_R</strong> (<em>jax.Array</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffers of left and right going wave speed estimates.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-odd"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -776,14 +776,14 @@ See Toro Eqs. (10.59) - (10.60)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>u_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
-<li><p><strong>u_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
-<li><p><strong>a_L</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
-<li><p><strong>a_R</strong> (<em>jnp.DeviceArray</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
+<li><p><strong>u_L</strong> (<em>jax.Array</em>) – Buffer with normal velocity in left neighboring cell.</p></li>
+<li><p><strong>u_R</strong> (<em>jax.Array</em>) – Buffer with normal velocity in right neighboring cell.</p></li>
+<li><p><strong>a_L</strong> (<em>jax.Array</em>) – Buffer with speed of sound in left neighboring cell.</p></li>
+<li><p><strong>a_R</strong> (<em>jax.Array</em>) – Buffer with speed of sound in right neighboring cell.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Tuple[jnp.DeviceArray, jnp.DeviceArray]</p>
+<dd class="field-even"><p>Tuple[jax.Array, jax.Array]</p>
 </dd>
 </dl>
 </dd></dl>

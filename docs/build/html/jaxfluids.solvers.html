@@ -194,8 +194,8 @@ determine the numerical flux.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables</p></li>
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of primitive variables</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which flux is calculated.</p></li>
 </ul>
 </dd>
@@ -203,7 +203,7 @@ determine the numerical flux.</p>
 <dd class="field-even"><p>Numerical flux in axis direction.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -236,8 +236,8 @@ cells.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>primes</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p></li>
-<li><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of conservative variables.</p></li>
+<li><p><strong>primes</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p></li>
+<li><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of conservative variables.</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which flux is calculated.</p></li>
 </ul>
 </dd>
@@ -245,7 +245,7 @@ cells.</p>
 <dd class="field-even"><p>Numerical flux in axis direction.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -272,13 +272,13 @@ in the active_physics section in the numerical setup file.</p>
 <dd><p>Computes flux due to gravitational force.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cons</strong> (<em>jnp.DeviceArray</em>) – Buffer of conservative variables.</p>
+<dd class="field-odd"><p><strong>cons</strong> (<em>jax.Array</em>) – Buffer of conservative variables.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Buffer with gravitational forces.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -290,7 +290,7 @@ in the active_physics section in the numerical setup file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>temperature</strong> (<em>jnp.DeviceArray</em>) – Buffer with temperature.</p></li>
+<li><p><strong>temperature</strong> (<em>jax.Array</em>) – Buffer with temperature.</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which the heat flux is calculated.</p></li>
 </ul>
 </dd>
@@ -298,7 +298,7 @@ in the active_physics section in the numerical setup file.</p>
 <dd class="field-even"><p>Heat flux in axis direction.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -311,9 +311,9 @@ tau_axis = [tau_axis0, tau_axis1, tau_axis2]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>vel_grad</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocity gradient. Shape is 3 x 3 (x 2) x Nx x Ny x Nz</p></li>
-<li><p><strong>dynamic_viscosity</strong> (<em>jnp.DeviceArray</em>) – Buffer of dynamic viscosity.</p></li>
-<li><p><strong>bulk_viscosity</strong> (<em>jnp.DeviceArray</em>) – Buffer of bulk viscosity.</p></li>
+<li><p><strong>vel_grad</strong> (<em>jax.Array</em>) – Buffer of velocity gradient. Shape is 3 x 3 (x 2) x Nx x Ny x Nz</p></li>
+<li><p><strong>dynamic_viscosity</strong> (<em>jax.Array</em>) – Buffer of dynamic viscosity.</p></li>
+<li><p><strong>bulk_viscosity</strong> (<em>jax.Array</em>) – Buffer of bulk viscosity.</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Cell face direction at which viscous stresses are calculated.</p></li>
 </ul>
 </dd>
@@ -321,7 +321,7 @@ tau_axis = [tau_axis0, tau_axis1, tau_axis2]</p>
 <dd class="field-even"><p>Buffer of viscous stresses.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -340,8 +340,8 @@ dw/dx dw/dy dw/dz</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>vels</strong> (<em>jnp.DeviceArray</em>) – Buffer of velocities.</p></li>
-<li><p><strong>temperature</strong> (<em>jnp.DeviceArray</em>) – Buffer of temperature.</p></li>
+<li><p><strong>vels</strong> (<em>jax.Array</em>) – Buffer of velocities.</p></li>
+<li><p><strong>temperature</strong> (<em>jax.Array</em>) – Buffer of temperature.</p></li>
 <li><p><strong>axis</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Axis along which the viscous flux is computed.</p></li>
 </ul>
 </dd>
@@ -349,7 +349,7 @@ dw/dx dw/dy dw/dz</p>
 <dd class="field-even"><p>Viscous flux along axis direction.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -361,7 +361,7 @@ dw/dx dw/dy dw/dz</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prime</strong> (<em>jnp.DeviceArray</em>) – Buffer of primitive variables.</p></li>
+<li><p><strong>prime</strong> (<em>jax.Array</em>) – Buffer of primitive variables.</p></li>
 <li><p><strong>axis_i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatiald direction wrt which the derivative is taken.</p></li>
 <li><p><strong>axis_j</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Spatial direction along which derivative is evaluated.</p></li>
 </ul>
@@ -370,7 +370,7 @@ dw/dx dw/dy dw/dz</p>
 <dd class="field-even"><p>Derivative wrt axis_i direction at cell face in axis_j direction.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>jnp.DeviceArray</p>
+<dd class="field-odd"><p>jax.Array</p>
 </dd>
 </dl>
 </dd></dl>

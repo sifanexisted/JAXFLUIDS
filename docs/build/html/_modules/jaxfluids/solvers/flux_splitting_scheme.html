@@ -152,13 +152,13 @@
         <span class="sd">&quot;&quot;&quot;Computes the numerical flux in axis direction.</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param cons: Buffer of primitive variables</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :param axis: Spatial direction along which flux is calculated.</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :return: Numerical flux in axis direction.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">physical_flux</span> <span class="o">=</span> <span class="n">get_fluxes_xi</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
 

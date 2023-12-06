@@ -155,7 +155,7 @@
 <span class="sd">        :param current_time: Current physical simulation time  </span>
 <span class="sd">        :type current_time: float</span>
 <span class="sd">        :return: Solid interface velocity</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># COMPUTE LAMBDA INPUTS</span>
@@ -191,13 +191,13 @@
         <span class="sd">&quot;&quot;&quot;Solves the two-material Riemann problem for FLUID-FLUID interface interactions.</span>
 
 <span class="sd">        :param primes: Primitive variable buffer</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param normal: Interface normal buffer</span>
-<span class="sd">        :type normal: jnp.DeviceArray</span>
+<span class="sd">        :type normal: jax.Array</span>
 <span class="sd">        :param curvature: Interface curvature buffer</span>
-<span class="sd">        :type curvature: jnp.DeviceArray</span>
+<span class="sd">        :type curvature: jax.Array</span>
 <span class="sd">        :return: Interface velocity and interface pressure</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, jnp.DeviceArray]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, jax.Array]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">primes</span>      <span class="o">=</span> <span class="n">primes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhx__</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhy__</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhz__</span><span class="p">]</span>

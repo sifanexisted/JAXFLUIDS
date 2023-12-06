@@ -51,22 +51,22 @@ class RiemannSolver(ABC):
         self.signal_speed = signal_speed
     
     @abstractmethod
-    def solve_riemann_problem_xi(self, primes_L: jnp.DeviceArray, primes_R: jnp.DeviceArray, 
-        cons_L: jnp.DeviceArray, cons_R: jnp.DeviceArray, axis: int, **kwargs) -> jnp.DeviceArray:
+    def solve_riemann_problem_xi(self, primes_L: jax.Array, primes_R: jax.Array, 
+        cons_L: jax.Array, cons_R: jax.Array, axis: int, **kwargs) -> jax.Array:
         """Solves one-dimensional Riemann problem in the direction as specified 
         by the axis argument.
 
         :param primes_L: primtive variable buffer left of cell face
-        :type primes_L: jnp.DeviceArray
+        :type primes_L: jax.Array
         :param primes_R: primtive variable buffer right of cell face
-        :type primes_R: jnp.DeviceArray
+        :type primes_R: jax.Array
         :param cons_L: conservative variable buffer left of cell face
-        :type cons_L: jnp.DeviceArray
+        :type cons_L: jax.Array
         :param cons_R: conservative variable buffer right of cell face
-        :type cons_R: jnp.DeviceArray
+        :type cons_R: jax.Array
         :param axis: Spatial direction along which Riemann problem is solved.
         :type axis: int
         :return: buffer of fluxes in xi direction 
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         pass

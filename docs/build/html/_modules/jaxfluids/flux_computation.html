@@ -171,9 +171,9 @@
         <span class="sd">&quot;&quot;&quot;Computes the convective fluxes. </span>
 
 <span class="sd">        :param primes: Primitive variable buffer</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param cons: Conservative variable buffer</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :param axis: Spatial direction</span>
 <span class="sd">        :type axis: int</span>
 <span class="sd">        :param ml_parameters_dict: Dictionary of neural network weights, defaults to None</span>
@@ -181,7 +181,7 @@
 <span class="sd">        :param ml_networks_dict: Dictionary of neural network architectures, defaults to None</span>
 <span class="sd">        :type ml_networks_dict: Union[Dict, None], optional</span>
 <span class="sd">        :return: Convective fluxes in axis direction</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="n">fluxes_xi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flux_computer</span><span class="o">.</span><span class="n">compute_fluxes_xi</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">cons</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> 

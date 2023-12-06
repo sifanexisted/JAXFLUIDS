@@ -208,15 +208,15 @@
         <span class="sd">&quot;&quot;&quot;Computes forcings for temperature, mass flow and turbulence kinetic energy.</span>
 
 <span class="sd">        :param primes: buffer of primitive variables</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param primes_dash: buffer of primitive variables for next time step without forcing</span>
-<span class="sd">        :type primes_dash: Union[jnp.DeviceArray, None]</span>
+<span class="sd">        :type primes_dash: Union[jax.Array, None]</span>
 <span class="sd">        :param cons: buffer of conservative variables</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :param volume_fraction: buffer of volume fractions</span>
-<span class="sd">        :type volume_fraction: Union[jnp.DeviceArray, None]</span>
+<span class="sd">        :type volume_fraction: Union[jax.Array, None]</span>
 <span class="sd">        :param mask_real: mask indicating the real fluid</span>
-<span class="sd">        :type mask_real: Union[jnp.DeviceArray, None]</span>
+<span class="sd">        :type mask_real: Union[jax.Array, None]</span>
 <span class="sd">        :param current_time: current physical simulation time</span>
 <span class="sd">        :type current_time: float</span>
 <span class="sd">        :param timestep_size: current physical time step size</span>
@@ -276,17 +276,17 @@
         <span class="sd">&quot;&quot;&quot;Computes temperature forcing.</span>
 
 <span class="sd">        :param primes: Buffer of primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param levelset: Buffer of level-set field.</span>
-<span class="sd">        :type levelset: Union[jnp.DeviceArray, None]</span>
+<span class="sd">        :type levelset: Union[jax.Array, None]</span>
 <span class="sd">        :param volume_fraction: Buffer of volume fraction field.</span>
-<span class="sd">        :type volume_fraction: Union[jnp.DeviceArray, None]</span>
+<span class="sd">        :type volume_fraction: Union[jax.Array, None]</span>
 <span class="sd">        :param current_time: Current simulation time.</span>
 <span class="sd">        :type current_time: float</span>
 <span class="sd">        :param timestep_size: Current integration time step.</span>
 <span class="sd">        :type timestep_size: float</span>
 <span class="sd">        :return: Buffer of the forcing vector and the mean absolute error wrt the temperature target.</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, float]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, float]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
        
         <span class="c1"># COMPUTE TEMPERATURE</span>
@@ -326,11 +326,11 @@
         <span class="sd">&quot;&quot;&quot;Computes mass flow forcing</span>
 
 <span class="sd">        :param cons: Buffer of the conservative variables.</span>
-<span class="sd">        :type cons: jnp.DeviceArray</span>
+<span class="sd">        :type cons: jax.Array</span>
 <span class="sd">        :param primes: Buffer of the primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param volume_fraction: Buffer of the volume fraction in two-phase flows.</span>
-<span class="sd">        :type volume_fraction: Union[jnp.DeviceArray, None]</span>
+<span class="sd">        :type volume_fraction: Union[jax.Array, None]</span>
 <span class="sd">        :param current_time: Current simulation time.</span>
 <span class="sd">        :type current_time: float</span>
 <span class="sd">        :param timestep_size: Current time step.</span>
@@ -340,7 +340,7 @@
 <span class="sd">        :param PID_e_int: Current PID integral error</span>
 <span class="sd">        :type PID_e_int: float</span>
 <span class="sd">        :return: Buffer of the body force, current mass flow, mass flow target, PID error, PID integral error</span>
-<span class="sd">        :rtype: Tuple[jnp.DeviceArray, float, float]</span>
+<span class="sd">        :rtype: Tuple[jax.Array, float, float]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># COMPUTE MASS FLOW TARGET</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mass_flow_target</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">LambdaType</span><span class="p">:</span>
@@ -373,14 +373,14 @@
         <span class="sd">&quot;&quot;&quot;Computes forcing for HIT </span>
 
 <span class="sd">        :param primes: Buffer of primitive variables.</span>
-<span class="sd">        :type primes: jnp.DeviceArray</span>
+<span class="sd">        :type primes: jax.Array</span>
 <span class="sd">        :param primes_dash: Buffer of intermediate primitive variables which are obtained</span>
 <span class="sd">            by integrating primes without forcing term.</span>
-<span class="sd">        :type primes_dash: jnp.DeviceArray</span>
+<span class="sd">        :type primes_dash: jax.Array</span>
 <span class="sd">        :param timestep: Current time step.</span>
 <span class="sd">        :type timestep: float</span>
 <span class="sd">        :return: Buffer of the forcing vector.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">primes</span>      <span class="o">=</span> <span class="n">primes</span><span class="p">[:,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhx</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhy</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhz</span><span class="p">]</span>
         <span class="n">primes_dash</span> <span class="o">=</span> <span class="n">primes_dash</span><span class="p">[:,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhx</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhy</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">nhz</span><span class="p">]</span>
@@ -399,16 +399,16 @@
         <span class="sd">&quot;&quot;&quot;Calculates the velocity forcing vector for HIT forcing.</span>
 
 <span class="sd">        :param vels: Buffer of velocities.</span>
-<span class="sd">        :type vels: jnp.DeviceArray</span>
+<span class="sd">        :type vels: jax.Array</span>
 <span class="sd">        :param vels_dash: Buffer of intermediate velocities which are obtained</span>
 <span class="sd">            by integrating primes without forcing term.</span>
-<span class="sd">        :type vels_dash: jnp.DeviceArray</span>
+<span class="sd">        :type vels_dash: jax.Array</span>
 <span class="sd">        :param eta_s: Cut-off wavenumber up to which forcing is applied.</span>
 <span class="sd">        :type eta_s: int</span>
 <span class="sd">        :param timestep: Current time step.</span>
 <span class="sd">        :type timestep: float</span>
 <span class="sd">        :return: Buffer of the velocity forcing vector.</span>
-<span class="sd">        :rtype: jnp.DeviceArray</span>
+<span class="sd">        :rtype: jax.Array</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">vels_hat</span>      <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftn</span><span class="p">(</span><span class="n">vels</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
