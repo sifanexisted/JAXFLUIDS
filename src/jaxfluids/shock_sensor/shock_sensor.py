@@ -29,6 +29,8 @@
 #*                                                                              *
 #*------------------------------------------------------------------------------*
 
+import jax
+
 from abc import ABC, abstractmethod
 
 from jaxfluids.domain_information import DomainInformation

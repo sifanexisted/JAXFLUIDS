@@ -32,6 +32,7 @@
 from abc import ABC, abstractmethod
 from typing import List
 
+import jax
 import jax.numpy as jnp
 
 class SpatialDerivative(ABC):

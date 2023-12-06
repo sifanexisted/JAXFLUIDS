@@ -34,6 +34,8 @@ import types
 from typing import Dict, Union, Tuple
 
 import numpy as np
+
+import jax
 import jax.numpy as jnp
 import json
 

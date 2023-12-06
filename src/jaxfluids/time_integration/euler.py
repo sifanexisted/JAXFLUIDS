@@ -31,6 +31,7 @@
 
 from typing import List
 
+import jax
 import jax.numpy as jnp
 
 from jaxfluids.time_integration.time_integrator import TimeIntegrator

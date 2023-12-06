@@ -32,6 +32,7 @@
 from typing import List, Union
 import types
 
+import jax
 import jax.numpy as jnp
 
 from jaxfluids.materials.material import Material

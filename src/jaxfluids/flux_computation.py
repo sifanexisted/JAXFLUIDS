@@ -31,6 +31,7 @@
 
 from typing import Dict, Union
 
+import jax
 import jax.numpy as jnp
 
 from jaxfluids.domain_information import DomainInformation
