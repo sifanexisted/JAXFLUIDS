@@ -91,122 +91,122 @@ class Material(ABC):
             assert False, "Thermal conductivity not implemented"
 
     @abstractmethod
-    def get_speed_of_sound(self, p: jnp.DeviceArray, rho: jnp.DeviceArray) -> jnp.DeviceArray:
+    def get_speed_of_sound(self, p: jax.Array, rho: jax.Array) -> jax.Array:
         """Computes speed of sound from pressure and density.
         c = c(p, rho)
 
         :param p: Pressure buffer
-        :type p: jnp.DeviceArray
+        :type p: jax.Array
         :param rho: Density buffer
-        :type rho: jnp.DeviceArray
+        :type rho: jax.Array
         :return: Speed of sound buffer
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         pass
 
     @abstractmethod
-    def get_pressure(self, e: jnp.DeviceArray, rho: jnp.DeviceArray) -> jnp.DeviceArray:
+    def get_pressure(self, e: jax.Array, rho: jax.Array) -> jax.Array:
         """Computes pressure from internal energy and density.
         p = p(e, rho)
 
         :param e: Specific internal energy buffer
-        :type e: jnp.DeviceArray
+        :type e: jax.Array
         :param rho: Density buffer
-        :type rho: jnp.DeviceArray
+        :type rho: jax.Array
         :return: Pressue buffer
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         pass
 
     @abstractmethod
-    def get_temperature(self, p: jnp.DeviceArray, rho: jnp.DeviceArray) -> jnp.DeviceArray:
+    def get_temperature(self, p: jax.Array, rho: jax.Array) -> jax.Array:
         """Computes temperature from pressure and density.
         T = T(p, rho)
 
         :param p: Pressure buffer
-        :type p: jnp.DeviceArray
+        :type p: jax.Array
         :param rho: Density buffer
-        :type rho: jnp.DeviceArray
+        :type rho: jax.Array
         :return: Temperature buffer
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         pass
     
     @abstractmethod
-    def get_energy(self, p:jnp.DeviceArray, rho:jnp.DeviceArray) -> jnp.DeviceArray:
+    def get_energy(self, p:jax.Array, rho:jax.Array) -> jax.Array:
         """Computes specific internal energy
         e = e(p, rho)
 
         :param p: Pressure buffer
-        :type p: jnp.DeviceArray
+        :type p: jax.Array
         :param rho: Density buffer
-        :type rho: jnp.DeviceArray
+        :type rho: jax.Array
         :return: Specific internal energy buffer
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         pass
 
     @abstractmethod
-    def get_total_energy(self, p:jnp.DeviceArray, rho:jnp.DeviceArray, u:jnp.DeviceArray, v:jnp.DeviceArray, w:jnp.DeviceArray) -> jnp.DeviceArray:
+    def get_total_energy(self, p:jax.Array, rho:jax.Array, u:jax.Array, v:jax.Array, w:jax.Array) -> jax.Array:
         """Computes total energy per unit volume from pressure, density, and velocities.
         E = E(p, rho, velX, velY, velZ)
 
         :param p: Pressure buffer
-        :type p: jnp.DeviceArray
+        :type p: jax.Array
         :param rho: Density buffer
-        :type rho: jnp.DeviceArray
+        :type rho: jax.Array
         :param u: Velocity in x direction
-        :type u: jnp.DeviceArray
+        :type u: jax.Array
         :param v: Velocity in y direction
-        :type v: jnp.DeviceArray
+        :type v: jax.Array
         :param w: Velocity in z direction
-        :type w: jnp.DeviceArray
+        :type w: jax.Array
         :return: Total energy per unit volume
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         pass
 
     @abstractmethod
-    def get_total_enthalpy(self, p:jnp.DeviceArray, rho:jnp.DeviceArray, u:jnp.DeviceArray, v:jnp.DeviceArray, w:jnp.DeviceArray) -> jnp.DeviceArray:
+    def get_total_enthalpy(self, p:jax.Array, rho:jax.Array, u:jax.Array, v:jax.Array, w:jax.Array) -> jax.Array:
         """Computes total specific enthalpy from pressure, density, and velocities.
         H = H(p, rho, velX, velY, velZ)
 
         :param p: Pressure buffer
-        :type p: jnp.DeviceArray
+        :type p: jax.Array
         :param rho: Density buffer
-        :type rho: jnp.DeviceArray
+        :type rho: jax.Array
         :param u: Velocity in x direction
-        :type u: jnp.DeviceArray
+        :type u: jax.Array
         :param v: Velocity in y direction
-        :type v: jnp.DeviceArray
+        :type v: jax.Array
         :param w: Velocity in z direction
-        :type w: jnp.DeviceArray
+        :type w: jax.Array
         :return: Total specific enthalpy buffer
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         pass
 
     @abstractmethod
-    def get_psi(self, p: jnp.DeviceArray, rho: jnp.DeviceArray) -> jnp.DeviceArray:
+    def get_psi(self, p: jax.Array, rho: jax.Array) -> jax.Array:
         """Computes psi from pressure and density.
         psi = p_rho; p_rho is partial derivative of pressure wrt density.
 
         :param p: Pressure buffer
-        :type p: jnp.DeviceArray
+        :type p: jax.Array
         :param rho: Density buffer
-        :type rho: jnp.DeviceArray
+        :type rho: jax.Array
         :return: Psi
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
         pass
 
     @abstractmethod
-    def get_grueneisen(self, rho: jnp.DeviceArray) -> jnp.DeviceArray:
+    def get_grueneisen(self, rho: jax.Array) -> jax.Array:
         """Computes the Grueneisen coefficient from density.
         Gamma = p_e / rho; p_e is partial derivative of pressure wrt internal specific energy.
 
         :param rho: Density buffer
-        :type rho: jnp.DeviceArray
+        :type rho: jax.Array
         :return: Grueneisen
-        :rtype: jnp.DeviceArray
+        :rtype: jax.Array
         """
